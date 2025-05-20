@@ -1,0 +1,15 @@
+<header>
+  <nav class="flex items-center justify-between flex-wrap bg-yellow-50 p-6">
+    <div class="flex items-center flex-shrink-0 text-yellow-950 mr-6">
+      <span class="font-semibold text-2xl tracking-tight">TEST APP</span>
+    </div>
+    <ul class="flex mr-4">
+      <%= link_to 'HOME', '#', class: "mr-4 text-yellow-950" %>
+      <%= link_to 'POSTS', '#', class: "mr-4 text-yellow-950" %>
+      <%= link_to 'NEWPOST', '#', class: "mr-4 text-yellow-950" %>
+      <%= link_to 'MY PAGE', '#', class: "mr-4 text-yellow-950" %>
+      <%= button_to 'LOGOUT', '#', method: :delete, class: "text-yellow-950 focus:outline-none cursor-pointer" %>
+    </ul>
+  </nav>
+  <div class="flex-1 border-b border-gray-500"></div>
+</header>
