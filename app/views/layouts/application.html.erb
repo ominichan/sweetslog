@@ -13,7 +13,11 @@
 
   <body>
     <div class= "bg-yellow-50 min-h-[100vh]">
-      <%= render 'shared/header' %>
+      <% if user_signed_in? %>
+        <%= render 'shared/header' %>
+      <% else %>
+        <%= render 'shared/before_login_header' %>
+      <% end %>
       <%= yield %>
     </div>
    </body>

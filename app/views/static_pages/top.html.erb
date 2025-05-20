@@ -1,3 +1,5 @@
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 <div class="flex items-center justify-center p-6">
   <%= image_tag 'SweetsLogロゴのみ', width: 500 %>
 </div>
@@ -30,5 +32,5 @@
   <div class="border-b border-yellow-950 w-370"></div>
 </div>
 <div class="mt-6">
- <button class="w-full text-yellow-50 bg-yellow-900 px-5 py-2.5 text-xl">会 員 登 録（無料） を し て 使 っ て み る</button>
+  <%= link_to '会 員 登 録（無料） を し て 使 っ て み る', new_user_registration_path, class: "block w-full text-lg text-center mr-4 text-yellow-50 bg-yellow-900 px-5 py-2.5" %>
 </div>
