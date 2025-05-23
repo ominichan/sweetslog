@@ -1,8 +1,11 @@
 <header>
   <nav class="flex items-center justify-between flex-wrap bg-yellow-50 p-3">
     <div class="flex items-center justify-center">
-      <%= image_tag 'SweetsLogロゴ（横並び）', width: 250 %>
+      <%= link_to root_path do %>
+        <%= image_tag 'SweetsLogロゴ（横並び）', width: 250 %>
+      <% end %>
     </div>
+    <div>
     <ul class="flex mr-4">
       <%= link_to 'ログイン', new_user_session_path, class: "mr-4 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5" %>
       <%= link_to 'ユーザー登録', new_user_registration_path, class: "mr-4 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5" %>
