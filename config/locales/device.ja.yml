@@ -24,7 +24,7 @@ ja:
     attributes:
       user:
         current_password: "現在のパスワード"
-        name: "名前"
+        name: "ユーザーネーム"
         email: "メールアドレス"
         password: "パスワード"
         6_characters_minimum: "６文字以上"
@@ -64,4 +64,4 @@ ja:
       already_confirmed: は既に登録済みです。ログインしてください。
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
-        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+        other: "%{count} 件のエラーが発生したため、%{resource}登録出来ませんでした。"
