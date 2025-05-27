@@ -3,3 +3,7 @@ ja:
     users:
       name: 'ユーザーネーム'
       email: 'メールアドレス'
+    attributes:
+      post:
+        title: タイトル
+        body: 本文
