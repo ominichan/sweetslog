@@ -4,6 +4,7 @@
       ログイン
     </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render 'shared/object_error_messages', object: f.object %>
       <div class="field mb-6">
         <%= f.email_field :email, class: "w-96 p-1.5 bg-stone-50 border border-stone-950 rounded-md", autofocus: true, placeholder:"メールアドレス" %>
       </div>
