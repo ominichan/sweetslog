@@ -1,0 +1,22 @@
+<div class='flex justify-center mb-6'>
+  <div class=" col-md-10 col-lg-8">
+    <div class= "mt-15 mb-10 font-bold text-center text-3xl text-yellow-900">
+      ポスト編集
+    </div>
+    <div class= "flex-col">
+    <%= form_with model: @post do |f| %>
+      <div class="mb-3 flex flex-col">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "w-96 bg-stone-50 border border-stone-950 rounded-md" %>
+      </div>
+      <div class="mb-3 flex flex-col">
+        <%= f.label :body %>
+        <%= f.text_area :body, class: "w-96 bg-stone-50 border border-stone-950 rounded-md", rows: "10" %>
+      </div>
+      <div class="actions flex justify-center">
+        <%= f.submit nil, class: "mt-4 w-44 rounded-md bg-yellow-900 p-3 text-white focus:outline-none cursor-pointer" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
