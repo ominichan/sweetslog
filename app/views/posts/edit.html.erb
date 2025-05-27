@@ -6,6 +6,7 @@
     </div>
     <div class= "flex-col">
     <%= form_with model: @post do |f| %>
+      <%= render 'shared/object_error_messages', object: f.object %>
       <div class="mb-3 flex flex-col">
         <%= f.label :title %>
         <%= f.text_field :title, class: "w-96 bg-stone-50 border border-stone-950 rounded-md" %>
