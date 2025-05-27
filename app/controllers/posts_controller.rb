@@ -12,7 +12,6 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: "ポストが作成されました"
     else
-      flash.now[:alert] = "エラーが起きました。入力内容を確認してください。"
       render :new, status: :unprocessable_entity
     end
   end
@@ -30,7 +29,6 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to post_path(@post), notice: "ポストが更新されました"
     else
-      flash.now[:alert] = "エラーが起きました。入力内容を確認してください。"
       render :edit, status: :unprocessable_entity
     end
   end
