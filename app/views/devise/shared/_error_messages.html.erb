@@ -1,5 +1,5 @@
 <% if resource.errors.any? %>
-  <div id="error_explanation" data-turbo-cache="false" class="mb-4 px-4 py-2 rounded-md text-rose-950 bg-rose-200 border-2 border-rose-900">
+  <div id="error_explanation" data-turbo-cache="false" class="m-4 px-4 py-2 rounded-md text-rose-950 bg-rose-200 border-2 border-rose-900">
     <ul>
       <% resource.errors.full_messages.each do |message| %>
         <% if message.include?("ユーザーネーム") %>
