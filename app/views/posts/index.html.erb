@@ -1,6 +1,8 @@
 <%= render 'shared/flash_messages' %>
 <% if @posts.present? %>
-  <%= render @posts %>
+  <div class="m-4 flex flex-wrap gap-4 justify-center items-center">
+    <%= render @posts %>
+  </div>
 <% else %>
-  <div class="mt-10 text-center">掲示板がありません</div>
+  <div class="mb-3 text-center">掲示板がありません</div>
 <% end %>
