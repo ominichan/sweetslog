@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.includes(:user)
+    @posts = Post.includes(:user).order(created_at: :desc)
   end
 
   def new
@@ -42,6 +42,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, images:[])
   end
 end
