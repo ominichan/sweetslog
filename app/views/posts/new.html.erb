@@ -14,6 +14,10 @@
         <%= f.label :body %>
         <%= f.text_area :body, class: "w-96 bg-stone-50 border border-stone-950 rounded-md", rows: "10" %>
       </div>
+      <div class="mb-3 flex flex-col">
+        <%= f.label :images %>
+        <%= f.file_field :images, multiple: true, class: "shadow appearance-none border-2 border-blue rounded w-full md:py-2 py-1 md:px-3 px-2 text-black leading-tight focus:outline-none focus:shadow-outline cursor-pointer" %>
+      </div>
       <div class="actions flex justify-center">
         <%= f.submit nil, class: "mt-4 w-44 rounded-md bg-yellow-900 p-3 text-white focus:outline-none cursor-pointer" %>
       </div>
