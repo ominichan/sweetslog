@@ -4,7 +4,7 @@
     <div class= "m-10 text-center text-3xl text-yellow-950">
       <%= @post.title %>
     </div>
-        <% if @post.images.attached? %>
+    <% if @post.images.attached? %>
       <div class="flex flex-wrap justify-center items-center">
         <%= image_tag(@post.images.first, width: 300, height: 300, style: "object-fit: cover;") %>
       </div>
