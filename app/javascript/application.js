@@ -1,8 +1,8 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
-import $ from "jquery"
+import jquery from "jquery"
 
-window.$ = $;
+window.$ = jquery;
 window.jQuery = $;
 
 document.addEventListener("turbo:load", function() {
