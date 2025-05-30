@@ -1,26 +1,28 @@
 <%= render 'shared/flash_messages' %>
-<div class='mt-10 flex flex-wrap justify-center mb-6'>
-  <div class=" col-md-10 col-lg-8">
-    <div class= "m-10 text-center text-3xl text-yellow-950">
-      <%= @post.title %>
-    </div>
+<div class="m-20 grid grid-flow-col grid-rows-3 gap-4 justify-center">
+  <div class="row-span-3">
     <% if @post.images.attached? %>
       <div class="flex flex-wrap justify-center items-center">
         <%= image_tag(@post.images.first, width: 300, height: 300, style: "object-fit: cover;") %>
       </div>
     <% end %>
-    <div class= "mt-10 text-yellow-950">
+  </div>
+  <div class= "ml-10 col-span-2">
+    <div class= "m-10 text-3xl text-yellow-950">
+      <%= @post.title %>
+    </div>
+    <div class= "col-span-2 row-span-2 text-yellow-950 whitespace-pre-wrap">
       <%= @post.body %>
     </div>
-    <% if @post.user == current_user %>
-      <div class= "flex flex-col">
-        <div class= "mt-10 text-yellow-950">
-          <%= link_to "編集する", edit_post_path(@post), class: "focus:outline-none cursor-pointer" %>
-        </div>
-        <div class= "mt-4 text-yellow-950">
-          <%= link_to "削除する", post_path(@post), class: "focus:outline-none cursor-pointer", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
-        </div>
-      </div>
-    <% end %>
   </div>
 </div>
+<% if @post.user == current_user %>
+  <div class= "flex flex-col">
+    <div class= "mt-10 text-yellow-950">
+      <%= link_to "編集する", edit_post_path(@post), class: "focus:outline-none cursor-pointer" %>
+    </div>
+    <div class= "mt-4 text-yellow-950">
+      <%= link_to "削除する", post_path(@post), class: "focus:outline-none cursor-pointer", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
+    </div>
+  </div>
+<% end %>
