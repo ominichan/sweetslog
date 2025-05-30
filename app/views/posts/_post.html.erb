@@ -6,8 +6,8 @@
         <i class="bi bi-person"></i><%= post.user.name %>
       </p>
       <% if post.images.attached? %>
-        <div class="flex flex-wrap justify-center items-center">
-          <%= image_tag(post.images.first, width: 200, height: 200, style: "object-fit: cover;") %>
+        <div class="m-2 flex flex-wrap justify-center items-center">
+          <%= image_tag(post.images.first.variant(resize_to_fit:[280, nil],resize_to_fill: [280, 280])) %>
         </div>
       <% end %>
     </div>
