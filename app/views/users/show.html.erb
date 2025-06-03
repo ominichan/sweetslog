@@ -1,0 +1,24 @@
+<div class= "m-4 text-center text-3xl text-yellow-950">
+  <%= @user.name %>のMY PAGE
+</div>
+<div class= "mt-10 mb-4 text-center text-xl text-yellow-950">
+  <%= @user.name %>の投稿
+</div>
+<% if @posts.present? %>
+<div class="m-4 flex flex-wrap gap-4 justify-center  items-center">
+  <% @posts.each do |post| %>
+    <div class="w-96 h-96 bg-white border border-gray-200 shadow-2xs rounded-xl p-4 md:p-5 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
+      <h3 class="text-lg text-center font-bold text-gray-800 dark:text-white">
+        <%= link_to post.title, post_path(post) %>
+      </h3>
+      <% if post.images.attached? %>
+        <div class="mt-5 flex flex-wrap justify-center items-center">
+          <%= image_tag(post.images.first.variant(resize_to_fit:[280, nil],resize_to_fill: [280, 280])) %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<% else %>
+  <div class="mb-3 text-center">掲示板がありません</div>
+<% end %>
