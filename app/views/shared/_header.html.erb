@@ -9,7 +9,7 @@
       <%= link_to 'HOME', root_path, class: "mr-4 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5" %>
       <%= link_to 'POSTS', posts_path, class: "mr-4 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5" %>
       <%= link_to 'NEWPOST', new_post_path, class: "mr-4 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5" %>
-      <%= link_to 'MY PAGE', '#', class: "mr-4 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5" %>
+      <%= link_to 'MY PAGE', user_path(current_user.id), class: "mr-4 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5" %>
       <%= button_to 'LOGOUT', destroy_user_session_path, method: :delete, class: "mr-4 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5" %>
     </ul>
   </nav>
