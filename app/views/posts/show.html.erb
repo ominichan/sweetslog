@@ -4,7 +4,7 @@
     <a class="group relative block shrink-0 self-start overflow-hidden">
       <% if @post.images.attached? %>
         <div class="flex flex-wrap justify-items-start items-center">
-          <%= image_tag(@post.images.first.variant(resize_to_fill: [350, 350]),class:"rounded-xl") %>
+          <%= image_tag(@post.images.first.variant(resize_to_fill: [350, 350]), class:"rounded-xl") %>
         </div>
       <% end %>
     </a>
