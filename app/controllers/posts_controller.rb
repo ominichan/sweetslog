@@ -42,6 +42,10 @@ class PostsController < ApplicationController
     redirect_to posts_path, notice: "ポストが削除されました"
   end
 
+  def likes
+    @like_posts = current_user.like_posts.includes(:user).order(created_at: :desc)
+  end
+
   private
 
   def post_params

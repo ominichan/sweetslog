@@ -9,11 +9,15 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
 
+  def notown?(post)
+    !posts.include?(post)
+  end
+
   def like(post)
     like_posts << post
   end
 
-  def like(board)
+  def unlike(post)
     like_posts.destroy(post)
   end
 
