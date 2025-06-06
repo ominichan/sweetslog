@@ -1,6 +1,6 @@
 <div class="w-96 h-96 bg-white border border-gray-200 shadow-2xs rounded-xl p-4 md:p-5 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
   <a class="group relative block shrink-0 self-start overflow-hidden">
-    <div class="m-2 flex flex-wrap justify-center items-center transition duration-200 group-hover:scale-110">
+    <div class="m-2 flex flex-wrap justify-center transition duration-200 group-hover:scale-110">
       <% if post.images.attached? %>
         <%= image_tag(post.images.first.variant(resize_to_fill: [280, 280]), class:"rounded-xl") %>
       <% else %>
@@ -11,7 +11,14 @@
   <h3 class="text-lg text-center font-bold text-gray-800 dark:text-white">
     <%= link_to post.title, post_path(post) %>
   </h3>
-  <p class="mt-1 text-xs text-left font-medium text-gray-500 dark:text-neutral-500">
-    <i>投稿者：<%= post.user.name %></i>
-  </p>
+  <div class="flex items-center">
+    <p class="mt-1 text-xs text-left font-medium text-gray-500 dark:text-neutral-500">
+      <i>投稿者：<%= post.user.name %></i>
+    </p>
+    <% if current_user.notown?(post) %>
+      <p class="mt-1 text-xs text-right">
+        <%= render 'like_buttons', { post: post } %>
+      </p>
+    <% end %>
+  </div>
 </div>
