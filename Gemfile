@@ -28,6 +28,8 @@ gem "importmap-rails"
 
 gem "image_processing", ">= 1.2"
 
+gem "ransack"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
