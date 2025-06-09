@@ -1,13 +1,7 @@
 class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).includes(:user)
-
-    if params[:q].present? && params[:q][:user_id].present?
-      @posts = @posts.where(user_id: params[:q][:user_id])
-    end
-
-    @posts = @posts.order(created_at: :desc)
+    @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc)
   end
 
   def new
@@ -50,7 +44,8 @@ class PostsController < ApplicationController
   end
 
   def likes
-    @like_posts = current_user.like_posts.includes(:user).order(created_at: :desc)
+    @q = current_user.like_posts.ransack(params[:q])
+    @like_posts = @q.result(distinct: true).includes(:user).order(created_at: :desc)
   end
 
   private

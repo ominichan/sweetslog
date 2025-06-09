@@ -2,13 +2,13 @@
 <div class= "mt-15 font-bold text-center text-3xl text-yellow-900">
   <%= current_user.name %>のお気に入り投稿一覧
 </div>
+<%= render 'search_form', q: @q, url: likes_posts_path %>
 <% if @like_posts.present? %>
-  <div class="pt-10 flex justify-center items-center min-h-screen">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+  <div class="mt-15 max-w-screen-xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 justify-items-center">
       <%= render @like_posts %>
     </div>
   </div>
 <% else %>
   <div class="mt-10 text-center">掲示板がありません</div>
 <% end %>
-</div>
