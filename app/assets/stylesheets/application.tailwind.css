@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+.my-custom-pagination {
+  display: flex;
+  justify-content: center;
+
+  a, span {
+    padding: 5px 10px;
+    margin: 0 5px;
+    background: #ffffff;
+    border-radius: 4px;
+  }
+
+  .page.current {
+    background-color: #333;
+    color: white;
+  }
+}
