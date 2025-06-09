@@ -1,6 +1,13 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.includes(:user).order(created_at: :desc)
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true).includes(:user)
+
+    if params[:q].present? && params[:q][:user_id].present?
+      @posts = @posts.where(user_id: params[:q][:user_id])
+    end
+
+    @posts = @posts.order(created_at: :desc)
   end
 
   def new
