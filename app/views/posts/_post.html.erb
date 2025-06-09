@@ -1,11 +1,11 @@
-<div class="w-96 h-96 bg-white border border-gray-200 shadow-2xs rounded-xl p-4 md:p-5 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
+<div class="w-75 h-75 bg-white border border-gray-200 shadow-2xs rounded-xl p-4 md:p-5 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
   <a class="group relative block shrink-0 self-start overflow-hidden">
     <div class="m-2 flex flex-wrap justify-center">
       <%= link_to post_path(post), class: "group" do %>
         <% if post.images.attached? %>
-          <%= image_tag(post.images.first.variant(resize_to_fill: [280, 280]), class:"rounded-xl transition duration-200 group-hover:scale-110") %>
+          <%= image_tag(post.images.first.variant(resize_to_fill: [200, 200]), class:"rounded-xl transition duration-200 group-hover:scale-105") %>
         <% else %>
-          <%= image_tag 'no_image.png', class:"transition duration-200 group-hover:scale-110" %>
+          <%= image_tag 'no_image.png', class:"rounded-xl transition duration-300 group-hover:scale-105" %>
         <% end %>
       <% end %>
     </div>
