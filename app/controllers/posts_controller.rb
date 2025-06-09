@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc)
+    @pagy, @posts = pagy(@q.result(distinct: true).includes(:user).order(created_at: :desc), limit: 12)
   end
 
   def new
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
 
   def likes
     @q = current_user.like_posts.ransack(params[:q])
-    @like_posts = @q.result(distinct: true).includes(:user).order(created_at: :desc)
+    @pagy, @like_posts = pagy(@q.result(distinct: true).includes(:user).order(created_at: :desc), limit: 12)
   end
 
   private

@@ -8,6 +8,9 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
       <%= render @like_posts %>
     </div>
+    <nav class="mt-10">
+      <%= pagy_nav(@pagy).html_safe %>
+    </nav>
   </div>
 <% else %>
   <div class="mt-10 text-center">掲示板がありません</div>
