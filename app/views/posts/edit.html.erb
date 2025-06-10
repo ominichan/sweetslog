@@ -22,7 +22,7 @@
         <% if @post.image.attached? %>
           <div class="mb-3">
             <p>現在の画像:</p>
-            <%= image_tag @post.image.variant(resize_to_limit: [200, 200]), class: "img-thumbnail" %><br>
+            <%= image_tag @post.image.variant(resize_to_fill: [350, 350]), class: "img-thumbnail" %><br>
           </div>
         <% end %>
         <div class="actions flex justify-center">
