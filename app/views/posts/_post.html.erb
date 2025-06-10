@@ -10,15 +10,15 @@
       <% end %>
     </div>
   </a>
-  <h3 class="text-lg text-center font-bold text-gray-800 dark:text-white">
-    <%= link_to post.title, post_path(post) %>
+  <h3 class="text-lg text-center font-black text-yellow-900 dark:text-white">
+    <%= link_to post.title, post_path(post),class:"hover:text-yellow-600" %>
   </h3>
-  <div class="flex items-center">
-    <p class="mt-1 text-xs text-left font-medium text-gray-500 dark:text-neutral-500">
+  <div class="flex items-center justify-between">
+    <p class="mt-1 text-xs font-medium text-gray-500 dark:text-neutral-500">
       <i>投稿者：<%= post.user.name %></i>
     </p>
     <% if current_user.notown?(post) %>
-      <p class="mt-1 text-xs text-right">
+      <p class="mt-1 text-xs">
         <%= render 'like_buttons', { post: post } %>
       </p>
     <% end %>
