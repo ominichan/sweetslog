@@ -1,0 +1,15 @@
+<div class= "mt-10 mb-4 text-center text-xl text-yellow-950">
+  <%= @user.name %>の投稿
+</div>
+  <% if @posts.present? %>
+    <div class="mt-15 max-w-screen-xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 justify-items-center">
+        <%= render @posts %>
+      </div>
+      <nav class="mt-10">
+        <%= pagy_nav(@pagy).html_safe %>
+      </nav>
+    </div>
+  <% else %>
+    <div class="mb-3 text-center">掲示板がありません</div>
+  <% end %>
