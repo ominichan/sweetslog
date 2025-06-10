@@ -5,34 +5,30 @@
       ポスト編集ページ
     </div>
     <div class= "flex-col">
-    <%= form_with model: @post do |f| %>
-      <%= render 'shared/object_error_messages', object: f.object %>
-      <div class="mb-3 flex flex-col">
-        <%= f.label :title %>
-        <%= f.text_field :title, class: "w-96 bg-stone-50 border border-stone-950 rounded-md" %>
-      </div>
-      <div class="mb-3 flex flex-col">
-        <%= f.label :body %>
-        <%= f.text_area :body, class: "w-96 bg-stone-50 border border-stone-950 rounded-md", rows: "10" %>
-      </div>
-      <div class="mb-3 flex flex-col">
-        <%= f.label :images %>
-        <%= f.file_field :images, multiple: true, class: "shadow appearance-none border-2 border-blue rounded w-full md:py-2 py-1 md:px-3 px-2 text-black leading-tight focus:outline-none focus:shadow-outline cursor-pointer" %>
-      </div>
-        <% if @post.images.attached? %>
-    <div class="mb-3">
-      <p>現在の画像:</p>
-      <% @post.images.each do |image| %>
-        <div class="text-center">
-          <%= image_tag image.variant(resize_to_limit: [200, 200]), class: "img-thumbnail" %><br>
+      <%= form_with model: @post do |f| %>
+        <%= render 'shared/object_error_messages', object: f.object %>
+        <div class="mb-3 flex flex-col">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: "w-96 bg-stone-50 border border-stone-950 rounded-md" %>
+        </div>
+        <div class="mb-3 flex flex-col">
+          <%= f.label :body %>
+          <%= f.text_area :body, class: "w-96 bg-stone-50 border border-stone-950 rounded-md", rows: "10" %>
+        </div>
+        <div class="mb-3 flex flex-col">
+          <%= f.label :image %>
+         <%= f.file_field :image, class: "shadow appearance-none border-2 border-blue rounded w-full md:py-2 py-1 md:px-3 px-2 text-black leading-tight focus:outline-none focus:shadow-outline cursor-pointer" %>
+        </div>
+        <% if @post.image.attached? %>
+          <div class="mb-3">
+            <p>現在の画像:</p>
+            <%= image_tag @post.image.variant(resize_to_limit: [200, 200]), class: "img-thumbnail" %><br>
+          </div>
+        <% end %>
+        <div class="actions flex justify-center">
+          <%= f.submit nil, class: "mt-4 w-44 rounded-md bg-yellow-900 p-3 text-white focus:outline-none cursor-pointer" %>
         </div>
       <% end %>
-    </div>
-  <% end %>
-      <div class="actions flex justify-center">
-        <%= f.submit nil, class: "mt-4 w-44 rounded-md bg-yellow-900 p-3 text-white focus:outline-none cursor-pointer" %>
-      </div>
-    <% end %>
     </div>
   </div>
 </div>
