@@ -4,8 +4,8 @@
 </div>
 <div class="slider">
   <% @posts.each do |post| %>
-    <% if post.images.attached? %>
-      <div><%= image_tag(post.images.first.variant(resize_to_fill: [400, 400]), class:"rounded-xl") %></div>
+    <% if post.image.attached? %>
+      <div><%= image_tag(post.image.variant(resize_to_fill: [400, 400]), class:"rounded-xl") %></div>
     <% end %>
   <% end %>
 </div>

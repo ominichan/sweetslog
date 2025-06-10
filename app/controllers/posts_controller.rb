@@ -27,9 +27,9 @@ class PostsController < ApplicationController
 
   def update
     @post = current_user.posts.find(params[:id])
-    if @post.update(post_params.except(:images))
-      if params[:post][:images].present?
-        @post.images.attach(params[:post][:images])
+    if @post.update(post_params.except(:image))
+      if params[:post][:image].present?
+        @post.image.attach(params[:post][:image])
       end
       redirect_to post_path(@post), notice: "ポストが更新されました"
     else
@@ -51,6 +51,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, images: [])
+    params.require(:post).permit(:title, :body, :image)
   end
 end
