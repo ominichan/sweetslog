@@ -5,7 +5,11 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :users, only: [ :show ]
+  resources :users, only: [ :show ] do
+    collection do
+      get :my_posts
+    end
+  end
   resources :posts, only: %i[ index new create show edit update destroy ] do
     collection do
       get :likes
