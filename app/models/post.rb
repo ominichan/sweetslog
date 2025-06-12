@@ -11,11 +11,11 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   def self.ransackable_attributes(auth_object = nil)
-    %w[title body tag_names]
+    %w[title body]
   end
 
   def self.ransackable_associations(auth_object = nil)
-    []
+    %w[post_tags tags]
   end
 
   def tag_names
