@@ -1,6 +1,6 @@
-<div class="w-75 h-75 bg-white border border-gray-200 shadow-2xs rounded-xl p-4 md:p-5 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
+<div class="w-70 h-75 bg-white border border-gray-200 shadow-2xs rounded-xl p-4 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
   <a class="group relative block shrink-0 self-start overflow-hidden">
-    <div class="m-2 flex flex-wrap justify-center">
+    <div class="m-2 flex flex-wrap justify-center mx-auto">
       <%= link_to post_path(post), class: "group" do %>
         <% if post.image.attached? %>
           <%= image_tag(post.image.variant(resize_to_fill: [200, 200]), class:"rounded-xl transition duration-200 group-hover:scale-105") %>
@@ -10,17 +10,22 @@
       <% end %>
     </div>
   </a>
-  <h3 class="text-lg text-center font-black text-yellow-900 dark:text-white">
+  <h3 class="text-lg text-center font-black text-yellow-900">
     <%= link_to post.title, post_path(post),class:"hover:text-yellow-600" %>
   </h3>
-  <div class="flex items-center justify-between">
-    <p class="mt-1 text-xs font-medium text-gray-500 dark:text-neutral-500">
-      <i>投稿者：<%= post.user.name %></i>
-    </p>
+    <div class="flex items-end justify-between mt-auto">
+    <div class="text-xs font-medium text-yellow-600">
+      <i><%= l post.created_at %></i>
+    </div>
     <% if current_user.notown?(post) %>
-      <p class="mt-1 text-xs">
+      <div class="text-xs">
         <%= render 'like_buttons', { post: post } %>
-      </p>
+      </div>
+    <% else %>
+    <div>
+      <%= link_to "編集", edit_post_path(post), class: "text-xs focus:outline-none cursor-pointer yellow-950" %>
+      <%= link_to "削除", post_path(post), class: "text-xs focus:outline-none cursor-pointer yellow-950", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }  %>
+    </div>
     <% end %>
   </div>
 </div>
