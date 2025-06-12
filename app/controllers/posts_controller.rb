@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
-    @pagy, @posts = pagy(@q.result(distinct: true).includes(:user).order(created_at: :desc), limit: 12)
+    if params[:tag_name]
+      @pagy, @posts = pagy(Post.joins(:tags).where(tags: { name: params[:tag_name] }).order(created_at: :desc), limit: 12)
+    else
+      @pagy, @posts = pagy(@q.result(distinct: true).includes(:user).order(created_at: :desc), limit: 12)
+    end
   end
 
   def new
@@ -48,9 +52,14 @@ class PostsController < ApplicationController
     @pagy, @like_posts = pagy(@q.result(distinct: true).includes(:user).order(created_at: :desc), limit: 12)
   end
 
+  def tags
+    @tag = Tag.new
+  end
+
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image)
+    params.require(:post).permit(:title, :body, :image, :tag_names)
   end
 end
