@@ -3,7 +3,7 @@ class Tag < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
-  scope :popular, -> { where(id: Post_tag.group(:tag_id).order('count_tag_id desc').limit(5).count(:tag_id).keys) }
+  scope :popular, -> { where(id: Post_tag.group(:tag_id).order("count_tag_id desc").limit(5).count(:tag_id).keys) }
 
   def self.ransackable_attributes(auth_object = nil)
     [ "name" ]
