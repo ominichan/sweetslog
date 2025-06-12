@@ -26,6 +26,12 @@
         </div>
       </div>
     </div>
+    <div class="mb-3 flex justify-center">
+      <div class="mb-3 flex flex-col">
+        <%= f.label :tag_names %>
+        <%= f.text_field :tag_names, value: f.object.tag_names, class: 'w-96 bg-stone-50 border border-stone-950 rounded-md', placeholder: '  ,で区切って入力してください' %>
+      </div>
+    </div>
     <div class="actions flex justify-center">
        <%= f.submit nil, class: "mt-4 w-44 rounded-md bg-yellow-900 p-3 text-white focus:outline-none cursor-pointer" %>
     </div>
