@@ -19,6 +19,6 @@ class UsersController < ApplicationController
     end
 
     @pagy, @posts = pagy(scoped_posts.order(created_at: :desc), items: 12)
-    @calendar_posts = @q.result(distinct: true) # カレンダー用（全件）
+    @calendar_posts = @q.result(distinct: true)
   end
 end
