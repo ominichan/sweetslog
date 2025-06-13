@@ -2,3 +2,7 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
+  simple_calendar:
+    previous: "先月"
+    next: "来月"
+    today: "今月"
