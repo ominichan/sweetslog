@@ -16,3 +16,20 @@ document.addEventListener("turbo:load", function() {
     infinite: true
   });
 });
+
+document.addEventListener("turbo:load", () => {
+  const toggleBtn = document.getElementById("toggle-calendar");
+  const calendar = document.getElementById("calendar-container");
+
+  if (toggleBtn && calendar) {
+    toggleBtn.addEventListener("click", () => {
+      if (calendar.style.display === "none" || calendar.style.display === "") {
+        calendar.style.display = "block";
+        toggleBtn.textContent = "カレンダーを非表示";
+      } else {
+        calendar.style.display = "none";
+        toggleBtn.textContent = "カレンダーを表示";
+      }
+    });
+  }
+});
