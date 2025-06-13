@@ -18,20 +18,20 @@
   display: block;
   text-decoration: none;
   border-radius: 0.5rem;
-  background-color: var(--color-yellow-600);
+  background-color: var(--color-yellow-700);
   padding: 0.25rem 0.75rem;
   color: inherit;
 }
 .pagy a:not(.gap):hover {
-  background-color: var(--color-yellow-800);
+  background-color: var(--color-yellow-900);
 }
 .pagy a:not(.gap):not([href]) {
   cursor: default;
-  background-color: var(--color-yellow-600);
+  background-color: var(--color-yellow-700);
   color: white;
 }
 .pagy a:not(.gap).current {
-  background-color: var(--color-yellow-900);
+  background-color: var(--color-yellow-950);
   color: white;
 }
 .pagy label {
