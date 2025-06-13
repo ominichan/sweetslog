@@ -2,7 +2,9 @@
 <div class= "mt-15 font-bold text-center text-3xl text-yellow-900">
   <%= current_user.name %>のお気に入り投稿一覧
 </div>
-<%= render 'search_form', q: @q, url: likes_posts_path %>
+<div class="m-4 flex flex-wrap gap-4 justify-center items-center">
+  <%= render 'search_form', q: @q, url: likes_posts_path %>
+</div>
 <% if @like_posts.present? %>
   <div class="mt-15 max-w-screen-xl mx-auto">
     <div class="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
