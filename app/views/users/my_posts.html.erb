@@ -1,9 +1,7 @@
 <div class= "mt-15 mb-10 font-bold text-center text-3xl text-yellow-900">
   <%= @user.name %>の投稿
 </div>
-<div class="m-4 flex flex-wrap gap-4 justify-center items-center">
-  <%= render "posts/search_form", q: @q, url: my_posts_user_path(current_user) %>
-</div>
+<%= render "posts/search_form", q: @q, url: my_posts_user_path(current_user) %>
 <% if @posts.present? %>
   <div class="mt-15 max-w-screen-xl mx-auto">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 justify-items-center">
