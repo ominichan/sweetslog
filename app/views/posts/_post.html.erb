@@ -18,7 +18,7 @@
       <i><%= l post.created_at %></i>
     </div>
     <% if current_user.notown?(post) %>
-      <div class="text-xs">
+      <div>
         <%= render 'like_buttons', { post: post } %>
       </div>
     <% else %>

@@ -1,18 +1,23 @@
 <%= render "shared/flash_messages" %>
 <div class="container mx-auto px-6 py-15 my-15 bg-white rounded-xl min-h-screen max-w-screen-lg">
-      <div class="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 justify-items-center">
+  <div class="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 justify-items-center">
     <div>
       <% if @post.image.attached? %>
-        <%= image_tag(@post.image.variant(resize_to_fill: [350, 350]), class:"rounded-xl") %>
+        <%= image_tag(@post.image.variant(resize_to_fill: [350, 350]), class:"rounded-xl mb-10") %>
       <% end %>
     </div>
     <div class="pr-15 col-span-1 justify-self-start">
       <div class="text-sm text-gray-400">
         <%= l @post.created_at %>
       </div>
-      <h2 class="text-2xl font-bold text-gray-800">
-        <%= @post.title %>
-      </h2>
+      <div class="flex justify-between mt-auto">
+        <h2 class="text-2xl font-bold text-gray-800">
+          <%= @post.title %>
+        </h2>
+        <% if current_user.notown?(@post) %>
+          <div><%= render 'like_buttons', { post: @post } %></div>
+        <% end %>
+      </div>
       <div class= "mt-10 text-yellow-950">
         <%= @post.body %>
       </div>
@@ -25,7 +30,7 @@
       </div>
     </div>
   </div>
-  <div class="mt-10 container mx-auto h-100 w-210 rounded-xl bg-gray-300">
+  <div class="mt-10 mb-10 container mx-auto h-100 w-210 rounded-xl bg-gray-300">
     <div class="flex items-center justify-center">地図</div>
   </div>
   <% if @post.user == current_user %>
