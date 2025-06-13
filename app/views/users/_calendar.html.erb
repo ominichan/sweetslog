@@ -1,0 +1,15 @@
+<div id="calendar-container" style="display: none;">
+  <div class='flex justify-center mb-6'>
+    <%= month_calendar(events: @calendar_posts, attribute: :created_at, class: "w-full table-fixed text-yellow-900 text-sm") do |date, posts| %>
+      <div class="text-sm text-yellow-950 text-center">
+        <%= date.day %>
+      </div>
+      <% posts_for_date = posts.select { |post| post.created_at.to_date == date } %>
+      <% if posts_for_date.any? %>
+        <div class="text-sm text-center">
+          <%= link_to "#{posts_for_date.count}件", my_posts_user_path(current_user, date: date),class:"font-bold text-yellow-900 hover:text-yellow-600" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
