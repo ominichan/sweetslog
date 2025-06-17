@@ -7,16 +7,11 @@ class DiagnosesController < ApplicationController
     @q1 = params[:q1]
     @q2 = params[:q2]
     @q3 = params[:q3]
-    @errors = []
 
-    @errors << "Q1が未選択です" if @q1.blank?
-    @errors << "Q2が未選択です" if @q2.blank?
-    @errors << "Q3が未選択です" if @q3.blank?
-    if @errors.any?
-      render :new, status: :unprocessable_entity
+    if @q1.blank? || @q2.blank? || @q3.blank?
+      @result = nil
     else
       @result = diagnose_sweets(@q1, @q2, @q3)
-      render :result
     end
   end
 
