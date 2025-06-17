@@ -1,6 +1,6 @@
 <header class="font-mono text-xs">
   <nav class="flex items-center justify-between flex-wrap bg-yellow-50 p-3">
-    <div class="flex items-center justify-center">
+    <div class="flex items-center justify-center ml-6">
       <%= link_to root_path do %>
         <%= image_tag "SweetsLogロゴ（ヘッダー）", width: 250 %>
       <% end %>
@@ -9,6 +9,7 @@
       <%= link_to '投稿する', new_post_path, class: "mr-4 px-5 py-2.5 text-yellow-50 bg-yellow-900 rounded-lg hover:bg-yellow-700" %>
       <%= link_to '投稿一覧', posts_path, class: "mr-4 px-5 py-2.5 text-yellow-50 bg-yellow-900 rounded-lg hover:bg-yellow-700" %>
       <%= link_to 'お気に入り', likes_posts_path, class: "mr-4 px-5 py-2.5 text-yellow-50 bg-yellow-900 rounded-lg hover:bg-yellow-700" %>
+      <%= link_to 'スイーツ診断', new_diagnose_path, class: "mr-4 px-5 py-2.5 text-yellow-50 bg-yellow-900 rounded-lg hover:bg-yellow-700" %>
       <%= link_to 'マイページ', user_path(current_user.id), class: "mr-4 px-5 py-2.5 text-yellow-50 bg-yellow-900 rounded-lg hover:bg-yellow-700" %>
       <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: "mr-4 px-5 py-2.5 text-yellow-50 bg-yellow-900 rounded-lg hover:bg-yellow-700" %>
     </ul>

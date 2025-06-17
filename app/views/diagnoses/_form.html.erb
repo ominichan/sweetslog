@@ -1,0 +1,53 @@
+<%= form_with url: diagnoses_result_path, method: :post, local: true, data: { turbo_frame: "diagnosis_result" } do |form| %>
+  <div class="py-2">
+    <p class="mb-1 font-semibold">
+      Q1. 今日の気分は？
+    </p>
+    <label class="inline-flex items-center space-x-2">
+      <%= form.radio_button :q1, 'A', class: "form-radio text-pink-500" %>
+        <span>ゆったりリラックスしたい</span>
+    </label><br>
+    <label class="inline-flex items-center space-x-2">
+      <%= form.radio_button :q1, 'B', class: "form-radio text-pink-500" %>
+      <span>ちょっと元気を出したい</span>
+    </label><br>
+    <label class="inline-flex items-center space-x-2">
+      <%= form.radio_button :q1, 'C', class: "form-radio text-pink-500" %>
+      <span>なんとなくワクワクしてる</span>
+    </label>
+  </div>
+
+  <div class="py-2">
+    <p class="mb-1 font-semibold">
+      Q2. どっちが食べたい？
+    </p>
+    <label class="inline-flex items-center space-x-2">
+      <%= form.radio_button :q2, 'A', class: "form-radio text-pink-500" %>
+      <span>洋菓子</span>
+    </label><br>
+    <label class="inline-flex items-center space-x-2">
+      <%= form.radio_button :q2, 'B', class: "form-radio text-pink-500" %>
+      <span>和菓子</span>
+    </label>
+  </div>
+
+  <div class="py-2">
+    <p class="mb-1 font-semibold">
+      Q3. 今の状態はどれ？
+    </p>
+    <label class="inline-flex items-center space-x-2">
+      <%= form.radio_button :q3, 'A', class: "form-radio text-pink-500" %>
+      <span>おなかぺこぺこ</span>
+    </label><br>
+    <label class="inline-flex items-center space-x-2">
+      <%= form.radio_button :q3, 'B', class: "form-radio text-pink-500" %>
+      <span>普通</span>
+    </label><br>
+    <label class="inline-flex items-center space-x-2">
+      <%= form.radio_button :q3, 'C', class: "form-radio text-pink-500" %>
+      <span>少しつまみたい程度</span>
+    </label>
+  </div>
+
+  <%= form.submit "診断する", class: "mt-4 w-44 rounded-md bg-yellow-900 p-3 text-white focus:outline-none cursor-pointer" %>
+<% end %>
