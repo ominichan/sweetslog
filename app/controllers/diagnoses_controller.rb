@@ -18,42 +18,42 @@ class DiagnosesController < ApplicationController
   private
 
   def diagnose_sweets(q1, q2, q3)
-    case [q1, q2, q3]
-    when ["A", "A", "A"]
+    case [ q1, q2, q3 ]
+    when [ "A", "A", "A" ]
       "ふわとろパンケーキ"
-    when ["A", "A", "B"]
+    when [ "A", "A", "B" ]
       "バスクチーズケーキ"
-    when ["A", "A", "C"]
+    when [ "A", "A", "C" ]
       "フィナンシェ"
-    when ["A", "B", "A"]
+    when [ "A", "B", "A" ]
       "あんバタートースト"
-    when ["A", "B", "B"]
+    when [ "A", "B", "B" ]
       "みたらし団子"
-    when ["A", "B", "C"]
+    when [ "A", "B", "C" ]
       "最中（もなか）"
-    when ["B", "A", "A"]
+    when [ "B", "A", "A" ]
       "ガトーショコラ"
-    when ["B", "A", "B"]
+    when [ "B", "A", "B" ]
       "ショートケーキ"
-    when ["B", "A", "C"]
+    when [ "B", "A", "C" ]
       "マカロン"
-    when ["B", "B", "A"]
+    when [ "B", "B", "A" ]
       "いちご大福"
-    when ["B", "B", "B"]
+    when [ "B", "B", "B" ]
       "どら焼き"
-    when ["B", "B", "C"]
+    when [ "B", "B", "C" ]
       "塩豆大福"
-    when ["C", "A", "A"]
+    when [ "C", "A", "A" ]
       "クレープ（カスタード＆フルーツ）"
-    when ["C", "A", "B"]
+    when [ "C", "A", "B" ]
       "フルーツタルト"
-    when ["C", "A", "C"]
+    when [ "C", "A", "C" ]
       "プチシュークリーム"
-    when ["C", "B", "A"]
+    when [ "C", "B", "A" ]
       "白玉クリームぜんざい"
-    when ["C", "B", "B"]
+    when [ "C", "B", "B" ]
       "抹茶ティラミス"
-    when ["C", "B", "C"]
+    when [ "C", "B", "C" ]
       "ひとくち羊羹"
     end
   end
