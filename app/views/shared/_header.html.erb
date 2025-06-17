@@ -6,8 +6,7 @@
       <% end %>
     </div>
     <ul class="flex mr-4">
-      <%= link_to 'ホーム', root_path, class: "mr-4 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5 hover:bg-yellow-700" %>
-      <%= link_to '新規作成', new_post_path, class: "mr-4 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5 hover:bg-yellow-700" %>
+      <%= link_to '投稿する', new_post_path, class: "mr-4 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5 hover:bg-yellow-700" %>
       <%= link_to '投稿一覧', posts_path, class: "mr-4 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5 hover:bg-yellow-700" %>
       <%= link_to 'お気に入り', likes_posts_path, class: "mr-4 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5 hover:bg-yellow-700" %>
       <%= link_to 'マイページ', user_path(current_user.id), class: "mr-4 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5 hover:bg-yellow-700" %>
