@@ -67,7 +67,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_18_042905) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "address"
+    t.string "address"
     t.float "latitude"
     t.float "longitude"
     t.string "spot"

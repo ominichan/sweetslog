@@ -56,20 +56,20 @@
 
 <script>
   function initMap(){
-    let mapPosition = {lat: <%= @post.latitude || 0 %> , lng: <%= @post.longitude || 0 %> };
-    let map = new google.maps.Map(document.getElementById('map'), {
+    const mapPosition = {lat: <%= @post.latitude || 0 %> , lng: <%= @post.longitude || 0 %> };
+    const map = new google.maps.Map(document.getElementById('map'), {
       zoom: 15,
       center: mapPosition
     });
-    let transitLayer = new google.maps.TransitLayer();
+    const transitLayer = new google.maps.TransitLayer();
     transitLayer.setMap(map);
 
-    let contentString = '【住所】<%= @post.address %>';
-    let infowindow = new google.maps.InfoWindow({
+    const contentString = '【住所】<%= @post.address %>';
+    const infowindow = new google.maps.InfoWindow({
       content: contentString
     });
 
-    let marker = new google.maps.Marker({
+    const marker = new google.maps.Marker({
       position: mapPosition,
       map: map,
       title: contentString
