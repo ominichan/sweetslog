@@ -32,9 +32,13 @@
       </div>
     </div>
   </div>
-  <div class="mt-10 mb-10 container mx-auto h-100 w-210 rounded-xl bg-gray-300">
-    <div class="flex items-center justify-center">地図</div>
+
+  <% if @post.address.present? %>
+  <div>
+    <div id="map" style="width: 830px; height: 400px;" class="mt-6 mb-6 mx-auto rounded-xl"></div>
   </div>
+  <% end %>
+
   <% if @post.user == current_user %>
     <div class="flex justify-center items-center">
       <div class= "m-10 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5 hover:bg-yellow-700">
@@ -49,3 +53,31 @@
     <div class="border-b border-yellow-950 w-370"></div>
   </div>
 </div>
+
+<script>
+  function initMap(){
+    let mapPosition = {lat: <%= @post.latitude || 0 %> , lng: <%= @post.longitude || 0 %> };
+    let map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: mapPosition
+    });
+    let transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    let contentString = '【住所】<%= @post.address %>';
+    let infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    let marker = new google.maps.Marker({
+      position: mapPosition,
+      map: map,
+      title: contentString
+    });
+
+    marker.addListener('click', function(){
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_API_KEY"] %>&callback=initMap"></script>
