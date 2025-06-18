@@ -67,14 +67,14 @@
 <script>
   function initMap(){
     const mapPosition = {lat: <%= @post.latitude || 0 %> , lng: <%= @post.longitude || 0 %> };
-    const map = new google.maps.Map(document.getElementById('map'), {
+    const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 15,
       center: mapPosition
     });
     const transitLayer = new google.maps.TransitLayer();
     transitLayer.setMap(map);
 
-    const contentString = '【住所】<%= @post.address %>';
+    const contentString = "【住所】<%= @post.address %>";
     const infowindow = new google.maps.InfoWindow({
       content: contentString
     });
@@ -85,7 +85,7 @@
       title: contentString
     });
 
-    marker.addListener('click', function(){
+    marker.addListener("click", function(){
       infowindow.open(map, marker);
     });
   }
