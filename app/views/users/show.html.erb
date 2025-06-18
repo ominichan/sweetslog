@@ -1,5 +1,5 @@
-<div class= "mt-15 mb-10 font-bold text-center text-3xl text-yellow-900">
-  <%= @user.name %>のMY PAGE
+<div class= "mt-15 mb-10 font-bold text-center text-2xl text-yellow-900">
+  <%= @user.name %> の マイページ
 </div>
 <div class="mt-15 max-w-290 mx-auto">
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
@@ -8,7 +8,7 @@
       <%= link_to my_posts_user_path(current_user.id) do %>
         <div class= "p-6 flex flex-wrap justify-center">
           <%= image_tag "自身の投稿ページ.png" %>
-          <div class="pt-4 text-lg text-center font-bold text-yellow-900">
+          <div class="pt-4 text-base text-center font-bold text-yellow-900">
             <span>自分の投稿</span>
           </div>
         </div>
@@ -19,7 +19,7 @@
       <%= link_to likes_posts_path do %>
         <div class= "p-6 flex flex-wrap justify-center">
           <%= image_tag "お気に入りページ.png" %>
-          <div class="pt-4 text-lg text-center font-bold text-yellow-900">
+          <div class="pt-4 text-base text-center font-bold text-yellow-900">
             <span>お気に入りした投稿</span>
           </div>
         </div>
@@ -30,7 +30,7 @@
       <%= link_to "#" do %>
         <div class= "p-6 flex flex-wrap justify-center">
           <%= image_tag "プロフィールマーク.png" %>
-          <div class="pt-4 text-lg text-center font-bold text-yellow-900">
+          <div class="pt-4 text-base text-center font-bold text-yellow-900">
             <span>プロフィール</span>
           </div>
         </div>
@@ -41,7 +41,7 @@
       <%= link_to "#" do %>
         <div class= "p-6 flex flex-wrap justify-center">
           <%= image_tag "設定マーク.png" %>
-          <div class="pt-4 text-lg text-center font-bold text-yellow-900">
+          <div class="pt-4 text-base text-center font-bold text-yellow-900">
             <span>個人情報変更</span>
           </div>
         </div>
