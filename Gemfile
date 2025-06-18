@@ -34,6 +34,10 @@ gem "pagy"
 
 gem "simple_calendar"
 
+gem "dotenv-rails"
+
+gem "geocoder"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
