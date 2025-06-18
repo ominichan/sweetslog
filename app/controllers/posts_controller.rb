@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @q = Post.ransack(params[:q])
     if params[:tag_name]
