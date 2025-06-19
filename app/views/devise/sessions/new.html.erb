@@ -1,21 +1,21 @@
-<div class='flex flex-wrap justify-center'>
-  <div class=" col-md-10 col-lg-8">
-    <div class= "mt-15 mb-10 font-bold text-center text-3xl text-yellow-900">
+<div class="flex flex-wrap justify-center">
+  <div class="flex-col">
+    <div class= "my-10 font-bold text-center text-2xl text-yellow-900">
       ログイン
     </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <% if alert.present? %>
-        <p class="m-4 px-4 py-2 rounded-md text-rose-950 bg-rose-200 border-2 border-rose-900">
+        <p class="mb-5 px-2 py-2 rounded-md text-rose-950 bg-rose-200 border-2 border-rose-900">
           <%= alert %>
         </p>
       <% end %>
 
       <div class="field mb-6">
-        <%= f.email_field :email, class: "w-96 p-1.5 bg-stone-50 border border-stone-950 rounded-md", autofocus: true, placeholder:"メールアドレス" %>
+        <%= f.email_field :email, class: "w-96 p-2 bg-stone-50 border border-stone-950 rounded-md", autofocus: true, placeholder:"メールアドレス" %>
       </div>
 
       <div class="field mb-6">
-        <%= f.password_field :password, class: "w-96 p-1.5 bg-stone-50 border border-stone-950 rounded-md", placeholder:"パスワード" %>
+        <%= f.password_field :password, class: "w-96 p-2 bg-stone-50 border border-stone-950 rounded-md", placeholder:"パスワード" %>
       </div>
 
       <% if devise_mapping.rememberable? %>

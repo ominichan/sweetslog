@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def my_posts
-    @user = User.find(params[:id])
+    @user = current_user
     @q = @user.posts.ransack(params[:q])
 
     if params[:date].present?

@@ -9,11 +9,10 @@
     <% end %>
   <% end %>
 </div>
-<div class= "m-10 text-center text-base text-yellow-900 font-semibold">
+<div class= "m-10 text-center text-base text-yellow-900">
   <ul>
-    <li>「このスイーツ美味しかったなぁ」</li>
-    <li>このような "幸せな記憶" を記録、</li>
-    <li>そしてシェアできるアプリ</li>
+    <li>美味しい<span class="font-bold">スイーツ</span>を食べた</li>
+    <li>幸せな思い出、<span class="font-bold">ログ</span>しよう。</li>
     <li>　</li>
     <li>開発中です。完成をお待ちください。</li>
   </ul>
@@ -39,6 +38,8 @@
 <div class="flex items-center justify-center">
   <div class="border-b border-yellow-950 w-370"></div>
 </div>
-<div class="mt-6">
-  <%= link_to '会員登録（無料） をして使ってみる', new_user_registration_path, class: "block w-full text-base text-center mr-4 text-yellow-50 bg-yellow-900 px-5 py-2.5" %>
-</div>
+<% unless user_signed_in? %>
+  <div class="mt-6">
+    <%= link_to '会員登録（無料） をして使ってみる', new_user_registration_path, class: "block w-full text-base text-center mr-4 text-yellow-50 bg-yellow-900 px-5 py-2.5" %>
+  </div>
+<% end %>
