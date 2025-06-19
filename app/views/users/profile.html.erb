@@ -1,3 +1,21 @@
-<div class="container mx-auto px-6 py-15 my-15 bg-white shadow-sm shadow-2xs rounded-xl min-h-screen max-w-screen-lg text-sm">
-  <%= @user.name %>
+<%= render "shared/flash_messages" %>
+<div class="container mx-auto px-6 py-15 my-15 bg-white shadow-sm shadow-2xs rounded-xl max-w-screen-sm">
+  <div class="justify-items-center">
+    <div class="flex">
+      <% if @user.image.attached? %>
+        <%= image_tag url_for(@user.image.variant(resize_to_fill: [50, 50])), class: "rounded-full transition duration-200 group-hover:scale-105" %>
+      <% else %>
+        <%= image_tag "プロフィールマーク.png", class:"rounded-full transition duration-300 group-hover:scale-105", width:50 %>
+      <% end %>
+      <div class="my-auto ml-5 text-base font-bold text-yellow-900">
+        <%= @user.name %>
+      </div>
+    </div>
+
+    <% if @user == current_user %>
+      <div class="mt-10">
+        <%= link_to "編集する", edit_user_path(current_user), class: "focus:outline-none cursor-pointer text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5 hover:bg-yellow-700" %>
+      </div>
+    <% end %>
+  </div>
 </div>

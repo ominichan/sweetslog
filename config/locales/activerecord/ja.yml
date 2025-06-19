@@ -1,8 +1,8 @@
 ja:
   activerecord:
     users:
-      name: 'ユーザーネーム'
-      email: 'メールアドレス'
+      name: ユーザーネーム
+      email: メールアドレス
     attributes:
       post:
         title: メニュー名
