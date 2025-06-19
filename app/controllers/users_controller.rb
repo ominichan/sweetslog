@@ -22,4 +22,28 @@ class UsersController < ApplicationController
     @pagy, @posts = pagy(scoped_posts.order(created_at: :desc), items: 12)
     @calendar_posts = @q.result(distinct: true)
   end
+
+  def profile
+    @user = User.find(params[:id])
+    @pagy, @posts = pagy(@user.posts.includes(:user).order(created_at: :desc), items: 12)
+  end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      redirect_to profile_user_path, notice: "プロフィールを更新しました。"
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :image)
+  end
 end

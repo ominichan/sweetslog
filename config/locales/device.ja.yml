@@ -42,7 +42,8 @@ ja:
       new:
         sign_up: "アカウント登録"
       user:
-        signed_up: "ユーザーを登録し、ログインしました。"
+        signed_up: "ユーザーを登録しログインしました"
+        updated: "プロフィールを更新しました"
     sessions:
       user:
         signed_in: "ログインしました"

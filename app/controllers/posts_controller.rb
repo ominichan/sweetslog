@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
     if params[:tag_name]
-      @pagy, @posts = pagy(Post.joins(:tags).where(tags: { name: params[:tag_name] }).order(created_at: :desc), limit: 12)
+      @pagy, @posts = pagy(Post.joins(:tags).where(tags: { name: params[:tag_name] }).includes(:user).order(created_at: :desc), limit: 12)
     else
       @pagy, @posts = pagy(@q.result(distinct: true).includes(:user).order(created_at: :desc), limit: 12)
     end
@@ -24,6 +24,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user = @post.user
   end
 
   def edit

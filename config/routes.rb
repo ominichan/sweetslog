@@ -5,17 +5,20 @@ Rails.application.routes.draw do
     sessions: "users/sessions"
   }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :users, only: [ :show ] do
+  resources :users, only: %i[ show edit update ] do
     member do
       get :my_posts
+      get :profile
     end
   end
+
   resources :posts, only: %i[ index new create show edit update destroy ] do
     collection do
       get :likes
     end
   end
-  resources :likes, only: %i[create destroy]
+  resources :likes, only: %i[ create destroy ]
+
   get  "diagnoses/new", to: "diagnoses#new", as: "new_diagnose"
   post "diagnoses/result", to: "diagnoses#result", as: "diagnoses_result"
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
