@@ -1,9 +1,9 @@
 <%= render "shared/flash_messages" %>
 <div class="container mx-auto px-6 py-15 my-15 bg-white rounded-xl min-h-screen max-w-screen-lg text-sm">
   <div class="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 justify-items-center">
-    <div>
+    <div class="mb-10">
       <% if @post.image.attached? %>
-        <%= image_tag(@post.image.variant(resize_to_fill: [360, 360]), class:"rounded-xl mb-10") %>
+        <%= image_tag(@post.image.variant(resize_to_fill: [360, 360]), class:"rounded-xl") %>
       <% else %>
         <%= image_tag 'No_Image.png', class:"rounded-xl transition duration-300 group-hover:scale-105" %>
       <% end %>
