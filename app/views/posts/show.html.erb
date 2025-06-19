@@ -1,5 +1,5 @@
 <%= render "shared/flash_messages" %>
-<div class="container mx-auto px-6 py-15 my-15 bg-white shadow-sm shadow-2xs rounded-xl min-h-screen max-w-screen-lg text-sm">
+<div class="container mx-auto px-5 py-15 my-15 bg-white shadow-sm shadow-2xs rounded-xl min-h-screen max-w-screen-lg text-sm">
   <div class="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 justify-items-center">
     <div class="mb-10">
       <% if @post.image.attached? %>
@@ -9,19 +9,25 @@
       <% end %>
     </div>
 
-    <div class="pr-15 col-span-1 justify-self-start">
+    <div class="justify-self-start col-span-1">
+      <div class="flex justify-between items-center w-110">
+        <div class="text-2xl font-bold text-gray-800">
+          <%= @post.title %>
+        </div>
+        <% if current_user.notown?(@post) %>
+          <div>
+          <%= render "like_buttons", { post: @post } %>
+          </div>
+        <% else %>
+          <div class="flex gap-2">
+            <%= render "edit_and_destroy_buttons", { post: @post } %>
+          </div>
+        <% end %>
+      </div>
       <div class="text-gray-400">
         <%= l @post.created_at %>
       </div>
-      <div class="flex justify-between mt-auto">
-        <h2 class="text-2xl font-bold text-gray-800">
-          <%= @post.title %>
-        </h2>
-        <% if current_user.notown?(@post) %>
-          <div><%= render 'like_buttons', { post: @post } %></div>
-        <% end %>
-      </div>
-      <div class= "mt-10 text-yellow-950">
+      <div class= "mt-10 text-yellow-950 max-w-[90%]">
         <%= @post.body %>
       </div>
       <div class="mt-6 flex-col">
@@ -45,17 +51,19 @@
     </div>
 
     <div class="col-span-2">
-      <div id="map" style="width: 830px; height: 400px;" class="mt-6 mb-6 rounded-xl"></div>
+      <div id="map" style="width: 850px; height: 400px;" class="mt-6 mb-6 rounded-xl"></div>
     </div>
   </div>
 
-  <% if @post.user == current_user %>
-    <div class="flex justify-center items-center">
-      <div class= "m-10 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5 hover:bg-yellow-700">
-        <%= link_to "編集する", edit_post_path(@post), class: "focus:outline-none cursor-pointer" %>
-      </div>
-      <div class= "m-10 text-yellow-50 bg-yellow-900 rounded-lg px-5 py-2.5 hover:bg-yellow-700">
-        <%= link_to "削除する", post_path(@post), class: "focus:outline-none cursor-pointer", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
+  <% if current_user.notown?(@post) %>
+    <div class="ml-15 my-5 flex col-span-2 justify-self-start">
+      <% if @user.image.attached? %>
+        <%= image_tag url_for(@user.image.variant(resize_to_fill: [20, 20])), class: "rounded-full transition duration-200 group-hover:scale-105" %>
+      <% else %>
+        <%= image_tag "プロフィールマーク.png", class:"rounded-full transition duration-300 group-hover:scale-105", width:50 %>
+      <% end %>
+      <div class="my-auto ml-1 font-bold text-yellow-900">
+        <%= link_to @user.name, profile_user_path(@user), class: "text-yellow-900 hover:text-yellow-700" %>
       </div>
     </div>
   <% end %>
