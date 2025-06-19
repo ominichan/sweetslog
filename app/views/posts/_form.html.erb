@@ -15,7 +15,7 @@
         <% end %>
         <div class="mt-5">
           <%= f.label :image, class: "text-yellow-950 font-bold" %>
-          <%= f.file_field :image, class: "w-100 py-2 px-2 appearance-none bg-stone-50 border border-yellow-950 rounded w-full text-gray-500 cursor-pointer" %>
+          <%= f.file_field :image, accept: ".jpeg, .gif, .png, .jpg", class: "w-100 py-2 px-2 appearance-none bg-stone-50 border border-yellow-950 rounded w-full text-gray-500 cursor-pointer" %>
         </div>
       </div>
       <div class="ml-8 mr-8 col-span-1 justify-self-start">
