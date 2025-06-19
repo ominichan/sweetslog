@@ -1,0 +1,32 @@
+<% if @posts.present? %>
+  <div class="max-w-275 mx-auto">
+    <div class="grid grid-cols-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-center">
+      <% @posts.each do |post| %>
+        <div class="w-65 h-72 p-4 bg-white shadow-sm shadow-2xs rounded-xl">
+          <div class="group relative block shrink-0 self-start overflow-hidden">
+            <div class="m-2 flex flex-wrap justify-center mx-auto">
+              <%= link_to post_path(post), class: "group" do %>
+                <% if post.image.attached? %>
+                  <%= image_tag url_for(post.image.variant(resize_to_fill: [200, 200])), class: "rounded-xl transition duration-200 group-hover:scale-105" %>
+                <% else %>
+                  <%= image_tag "No_Image.png", class:"rounded-xl transition duration-300 group-hover:scale-105", width:200 %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="text-base text-center font-bold text-yellow-900 truncate max-w-[95%]">
+            <%= link_to post.title, post_path(post), class: "hover:text-yellow-600" %>
+          </div>
+          <div class="flex items-end justify-between mt-auto">
+            <div class="flex justify-self-start">
+              <%= render "posts/user_profile_button", { user: post.user } %>
+            </div>
+            <%= render "posts/like_buttons", { post: post } %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <div class="mb-3 text-center">掲示板がありません</div>
+<% end %>

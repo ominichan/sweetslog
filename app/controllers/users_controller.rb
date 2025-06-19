@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find(params[:id])
-    @pagy, @posts = pagy(@user.posts.order(created_at: :desc), items: 12)
+    @pagy, @posts = pagy(@user.posts.includes(:user).order(created_at: :desc), items: 12)
   end
 
   def edit

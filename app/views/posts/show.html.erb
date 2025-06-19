@@ -24,10 +24,15 @@
           </div>
         <% end %>
       </div>
-      <div class="text-gray-400">
-        <%= l @post.created_at %>
+      <div class="flex mt-1 gap-2">
+        <div class="flex">
+          <%= render "user_profile_button", { user: @user } %>
+        </div>
+        <div class=" text-gray-400">
+          <%= l @post.created_at %>
+        </div>
       </div>
-      <div class= "mt-10 text-yellow-950 max-w-[90%]">
+      <div class= "mt-6 text-yellow-950 max-w-[90%]">
         <%= @post.body %>
       </div>
       <div class="mt-6 flex-col">
@@ -55,20 +60,11 @@
     </div>
   </div>
 
-  <% if current_user.notown?(@post) %>
-    <div class="ml-15 my-5 flex col-span-2 justify-self-start">
-      <% if @user.image.attached? %>
-        <%= image_tag url_for(@user.image.variant(resize_to_fill: [20, 20])), class: "rounded-full transition duration-200 group-hover:scale-105" %>
-      <% else %>
-        <%= image_tag "プロフィールマーク.png", class:"rounded-full transition duration-300 group-hover:scale-105", width:50 %>
-      <% end %>
-      <div class="my-auto ml-1 font-bold text-yellow-900">
-        <%= link_to @user.name, profile_user_path(@user), class: "text-yellow-900 hover:text-yellow-700" %>
-      </div>
-    </div>
-  <% end %>
+  <div class="ml-15 my-5 flex">
+    <%= render "user_profile_button", { user: @user } %>
+  </div>
   <div class="flex items-center justify-center">
-    <div class="border-b border-yellow-950 w-370"></div>
+    <div class="border-b border-yellow-950 w-[90%]"></div>
   </div>
 </div>
 
