@@ -22,4 +22,8 @@ class UsersController < ApplicationController
     @pagy, @posts = pagy(scoped_posts.order(created_at: :desc), items: 12)
     @calendar_posts = @q.result(distinct: true)
   end
+
+  def profile
+    @user = current_user
+  end
 end

@@ -8,14 +8,17 @@ Rails.application.routes.draw do
   resources :users, only: [ :show ] do
     member do
       get :my_posts
+      get :profile
     end
   end
+
   resources :posts, only: %i[ index new create show edit update destroy ] do
     collection do
       get :likes
     end
   end
   resources :likes, only: %i[create destroy]
+
   get  "diagnoses/new", to: "diagnoses#new", as: "new_diagnose"
   post "diagnoses/result", to: "diagnoses#result", as: "diagnoses_result"
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

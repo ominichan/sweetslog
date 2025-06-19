@@ -27,7 +27,7 @@
     </div>
 
     <div class= "w-60 h-60 text-center bg-white border border-yellow-900 shadow-2xs rounded-lg p-4 md:p-5">
-      <%= link_to "#" do %>
+      <%= link_to profile_user_path(current_user.id) do %>
         <div class= "p-6 flex flex-wrap justify-center">
           <%= image_tag "プロフィールマーク.png" %>
           <div class="pt-4 text-base text-center font-bold text-yellow-900">
