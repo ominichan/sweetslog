@@ -1,11 +1,11 @@
-<div class= "mt-15 mb-10 font-bold text-center text-3xl text-yellow-900">
+<div class= "mt-10 mb-4 font-bold text-center text-2xl text-yellow-900">
   <%= @user.name %>の投稿
 </div>
 
 <%= render "posts/search_form", q: @q, url: my_posts_user_path(current_user) %>
 
-<div class="flex justify-center">
-  <button id="toggle-calendar" class="text-yellow-900 hover:text-yellow-600">
+<div class="mt-4 flex justify-center">
+  <button id="toggle-calendar" class="font-semibold text-yellow-900 hover:text-yellow-600 cursor-pointer">
     カレンダーを表示
   </button>
 </div>
