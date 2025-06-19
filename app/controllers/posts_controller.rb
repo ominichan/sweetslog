@@ -32,10 +32,8 @@ class PostsController < ApplicationController
 
   def update
     @post = current_user.posts.find(params[:id])
-    if @post.update(post_params.except(:image))
-      if params[:post][:image].present?
-        @post.image.attach(params[:post][:image])
-      end
+    @post.image.attach(params[:post][:image]) if @post.image.blank?
+    if @post.update(post_params)
       redirect_to post_path(@post), notice: "ポストが更新されました"
     else
       render :edit, status: :unprocessable_entity
