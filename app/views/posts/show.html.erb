@@ -3,7 +3,7 @@
   <div class="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 justify-items-center">
     <div>
       <% if @post.image.attached? %>
-        <%= image_tag(@post.image.variant(resize_to_fill: [350, 350]), class:"rounded-xl mb-10") %>
+        <%= image_tag(@post.image.variant(resize_to_fill: [360, 360]), class:"rounded-xl mb-10") %>
       <% else %>
         <%= image_tag 'No_Image.png', class:"rounded-xl transition duration-300 group-hover:scale-105" %>
       <% end %>
