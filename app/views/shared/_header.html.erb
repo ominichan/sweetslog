@@ -1,5 +1,5 @@
-<header class="font-mono">
-  <nav class="flex items-center justify-between flex-wrap bg-yellow-50 p-3">
+<header>
+  <nav class="p-3 flex flex-wrap items-center justify-between bg-yellow-50">
     <div class="flex items-center justify-center ml-6">
       <%= link_to posts_path do %>
         <%= image_tag "SweetsLogロゴ（ヘッダー）", width: 250 %>
@@ -14,7 +14,7 @@
       <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: "mr-4 px-5 py-3 bg-yellow-900 rounded-lg hover:bg-yellow-700" %>
     </ul>
   </nav>
-  <div class="flex items-center justify-center">
-    <div class="mx-4 border-b border-yellow-950 w-full"></div>
+  <div class="flex justify-center">
+    <div class="mx-4 border border-dashed border-yellow-700 w-[97%]"></div>
   </div>
 </header>
