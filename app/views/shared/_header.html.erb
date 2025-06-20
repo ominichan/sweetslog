@@ -6,12 +6,12 @@
       <% end %>
     </div>
     <ul class="flex mr-4 text-yellow-50 text-sm">
-      <%= link_to '投稿する', new_post_path, class: "mr-4 px-5 py-3 bg-yellow-900 rounded-lg hover:bg-yellow-700" %>
-      <%= link_to '投稿一覧', posts_path, class: "mr-4 px-5 py-3 bg-yellow-900 rounded-lg hover:bg-yellow-700" %>
-      <%= link_to 'お気に入り', likes_posts_path, class: "mr-4 px-5 py-3 bg-yellow-900 rounded-lg hover:bg-yellow-700" %>
-      <%= link_to 'スイーツ診断', new_diagnose_path, class: "mr-4 px-5 py-3 bg-yellow-900 rounded-lg hover:bg-yellow-700" %>
-      <%= link_to 'マイページ', user_path(current_user.id), class: "mr-4 px-5 py-3 bg-yellow-900 rounded-lg hover:bg-yellow-700" %>
-      <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: "mr-4 px-5 py-3 bg-yellow-900 rounded-lg hover:bg-yellow-700" %>
+      <%= link_to '投稿する', new_post_path, class: "brown-button" %>
+      <%= link_to '投稿一覧', posts_path, class: "brown-button" %>
+      <%= link_to 'お気に入り', likes_posts_path, class: "brown-button" %>
+      <%= link_to 'スイーツ診断', new_diagnose_path, class: "brown-button" %>
+      <%= link_to 'マイページ', user_path(current_user.id), class: "brown-button" %>
+      <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: "brown-button" %>
     </ul>
   </nav>
   <div class="flex justify-center">

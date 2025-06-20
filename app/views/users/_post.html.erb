@@ -3,7 +3,7 @@
     <div class="grid grid-cols-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-center">
       <% @posts.each do |post| %>
         <div class="w-65 h-72 p-4 bg-white shadow-sm shadow-2xs rounded-xl">
-          <div class="group relative block shrink-0 self-start overflow-hidden">
+          <div class="group relative block shrink-0 self-start overflow-hidden ">
             <div class="m-2 flex flex-wrap justify-center mx-auto">
               <%= link_to post_path(post), class: "group" do %>
                 <% if post.image.attached? %>
