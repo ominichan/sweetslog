@@ -11,9 +11,9 @@ class DiagnosesController < ApplicationController
   )
 
   @result = if @diagnosis.q1.blank? || @diagnosis.q2.blank? || @diagnosis.q3.blank?
-              nil
-            else
-              @diagnosis.result
-            end
+      nil
+  else
+    @diagnosis.result
+  end
   end
 end
