@@ -10,11 +10,22 @@ window.jQuery = $;
 document.addEventListener("turbo:load", function() {
   $(".slider").slick({
     variableWidth: true,
-    centerMode: true, // スライドを中心に表示して部分的に前後のスライドが見えるように設定（奇数番号のスライドに使用）
-    dots: true, // ドットインジケーターの表示
-    autoplay: true, // 自動再生を設定
-    autoplaySpeed: 3000, // 自動再生のスピード（ミリ秒単位）
-    speed: 1000, // スライド/フェードアニメーションの速度を設定
+    centerMode: true,
+    dots: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    speed: 1000,
     infinite: true
+  });
+});
+
+$(window).on("scroll load", function(){
+  var scroll = $(this).scrollTop();
+  var windowHeight = $(window).height();
+  $(".fadeIn").each(function(){
+    var cntPos = $(this).offset().top;
+    if(scroll > cntPos - windowHeight + windowHeight / 3){
+      $(this).addClass("active");
+    }
   });
 });

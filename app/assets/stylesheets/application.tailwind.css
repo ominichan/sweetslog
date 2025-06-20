@@ -117,3 +117,15 @@
 .fs10 {
   font-size: 10px;
 }
+
+.box {
+  opacity: 0;
+  transition: .5s;
+  position: relative;
+  top: 50px;
+}
+
+.active {
+  opacity: 1;
+  top: 0;
+}

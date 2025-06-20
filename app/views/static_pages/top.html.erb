@@ -1,27 +1,30 @@
 <%= render 'shared/flash_messages' %>
-<div class="flex flex-col items-center justify-center my-40">
+<div class="flex flex-col items-center justify-center mt-30 mb-50">
   <%= image_tag "SweetsLogロゴ（ホーム）" %>
   <ul class= "text-center text-base text-yellow-900">
     <li>美味しい<span class="font-bold text-lg">「スイーツ」</span>を食べた</li>
     <li>幸せな思い出<span class="font-bold text-lg">「ログ」</span>しよう</li>
   </ul>
 </div>
-<div class="slider">
-  <% @posts.each do |post| %>
-    <% if post.image.attached? %>
-      <div><%= image_tag(post.image.variant(resize_to_fill: [400, 400]), class:"rounded-xl") %></div>
+
+<div class="box fadeIn">
+  <div class="slider">
+    <% @posts.each do |post| %>
+      <% if post.image.attached? %>
+        <div><%= image_tag(post.image.variant(resize_to_fill: [400, 400]), class:"rounded-xl") %></div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
-<div class= "mt-15 mb-15 text-center text-base text-yellow-900">
-  <ul>
-    <li>SweetsLog は</li>
-    <li>美味しいスイーツを食べた幸せな記憶を記録、シェアするアプリです。</li>
-  </ul>
+  </div>
+  <div class= "my-15 text-center text-base text-yellow-900">
+    <ul>
+      <li>SweetsLog は</li>
+      <li>美味しいスイーツを食べた幸せな記憶を記録、シェアするアプリです。</li>
+    </ul>
+  </div>
 </div>
 
-<div class="max-w-230 mx-auto">
-  <div class="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 justify-items-center">
+<div class="box fadeIn max-w-230 mx-auto">
+  <div class="justify-items-center grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
     <div class="w-100 h-75 p-10 bg-white shadow-sm rounded-xl">
       <div class= "flex flex-wrap justify-center">
         <%= image_tag "投稿アイコン（トップ）.png" %>
@@ -45,7 +48,11 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
 
+<div class="box fadeIn mt-10 max-w-230 mx-auto">
+  <div class="justify-items-center grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
     <div class="w-100 h-75 p-10 bg-white shadow-sm rounded-xl">
       <div class= "flex flex-wrap justify-center">
         <%= image_tag "検索アイコン（トップ）.png" %>
@@ -70,12 +77,7 @@
       </div>
     </div>
   </div>
+  <% unless user_signed_in? %>
+    <%= link_to '会員登録（無料） をして使ってみる', new_user_registration_path, class: "my-10 mx-auto block text-base text-center text-white bg-yellow-900 px-5 py-2.5 rounded-xl hover:bg-yellow-700" %>
+  <% end %>
 </div>
-
-
-
-<% unless user_signed_in? %>
-  <div class="my-15">
-    <%= link_to '会員登録（無料） をして使ってみる', new_user_registration_path, class: "my-10 mx-auto block w-[60%] text-base text-center text-white bg-yellow-900 px-5 py-2.5 rounded-xl hover:bg-yellow-700" %>
-  </div>
-<% end %>
