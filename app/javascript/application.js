@@ -1,7 +1,8 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
 import jquery from "jquery"
-import './place_autocomplete.js'
+import "./place_autocomplete.js"
+import "./toggle_calendar.js"
 
 window.$ = jquery;
 window.jQuery = $;
@@ -16,27 +17,4 @@ document.addEventListener("turbo:load", function() {
     speed: 1000, // スライド/フェードアニメーションの速度を設定
     infinite: true
   });
-});
-
-document.addEventListener('turbo:load', () => {
-  const toggleBtn = document.getElementById('toggle-calendar');
-  const calendar = document.getElementById('calendar-container');
-
-  if (!toggleBtn || !calendar) return;
-
-  const isOpen = localStorage.getItem('calendarOpen') === 'true';
-  calendar.style.display = isOpen ? 'block' : 'none';
-  toggleBtn.textContent = isOpen ? 'カレンダーを非表示' : 'カレンダーを表示';
-
-  toggleBtn.onclick = () => {
-    if (calendar.style.display === 'none') {
-      calendar.style.display = 'block';
-      toggleBtn.textContent = 'カレンダーを非表示';
-      localStorage.setItem('calendarOpen', 'true');
-    } else {
-      calendar.style.display = 'none';
-      toggleBtn.textContent = 'カレンダーを表示';
-      localStorage.setItem('calendarOpen', 'false');
-    }
-  };
 });
