@@ -1,16 +1,13 @@
 <div class="flex flex-wrap gap-4 justify-center items-center">
   <%= search_form_for q, url: url do |f| %>
-    <%= f.select :address_cont, Prefecture.list, { include_blank: " 都道府県" }, class: "mr-1 p-2 w-50 bg-stone-50 border border-yellow-950 rounded-md" %>
-    <%= f.search_field :title_cont, placeholder: " 料理名", class: "mr-1 p-2 w-50 bg-stone-50 border border-yellow-950 rounded-md" %>
-    <%= f.search_field :tags_name_cont, placeholder: " タグ", class: "mr-1 p-2 w-50 bg-stone-50 border border-yellow-950 rounded-md" %>
-    <%= f.search_field :body_or_tags_name_cont, placeholder: " キーワード", class: "mr-1 p-2 w-96 bg-stone-50 border border-yellow-950 rounded-md" %>
-    <%= f.submit "検索", class: "mt-4 rounded-md bg-yellow-900 py-2 px-3 text-white focus:outline-none cursor-pointer" %>
     <% if current_page?(my_posts_user_path(current_user))%>
-      <div class="flex items-center justify-center mt-4">
-        <%= f.date_field :created_at_gteq, include_blank: true, class: "p-2 w-30 bg-stone-50 border border-yellow-950 rounded-md" %>
-        <div class="my-auto mx-1">～</div>
-        <%= f.date_field :created_at_lteq_end_of_day, include_blank: true, class: "p-2 w-30 bg-stone-50 border border-yellow-950 rounded-md" %>
-      </div>
+      <%= f.date_field :created_at_gteq, include_blank: true, class: "p-2 w-30 bg-stone-50 border border-yellow-950 rounded-md" %>
+      ～
+      <%= f.date_field :created_at_lteq_end_of_day, include_blank: true, class: "p-2 w-30 bg-stone-50 border border-yellow-950 rounded-md" %>
     <% end %>
+    <%= f.select :address_cont, Prefecture.list, { include_blank: " 都道府県" }, class: "p-2 w-50 bg-stone-50 border border-yellow-950 rounded-md" %>
+    <%= f.search_field :title_cont, placeholder: " 料理名", class: "p-2 w-50 bg-stone-50 border border-yellow-950 rounded-md" %>
+    <%= f.search_field :body_or_tags_name_cont, placeholder: " キーワード", class: "p-2 w-96 bg-stone-50 border border-yellow-950 rounded-md" %>
+    <%= f.submit "検索", class: "rounded-md bg-yellow-900 py-2 px-3 text-white focus:outline-none cursor-pointer" %>
   <% end %>
 </div>
