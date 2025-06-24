@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class= "mt-6 text-yellow-950 max-w-[90%]">
-        <%= @post.body %>
+        <%= simple_format(@post.body) %>
       </div>
       <div class="mt-6 flex-col">
         <% @post.tags.each do |tag| %>
