@@ -11,13 +11,18 @@
         <%= @user.name %>
       </div>
     </div>
+    <div class="mt-5">
+      投稿数 : <%= @user.posts.count %> 件
+    </div>
   </div>
 </div>
 
 <% if @user == current_user %>
-  <div class="flex justify-center">
-    <%= link_to "編集する", edit_user_path(current_user), class: "mt-4 w-40 rounded-md bg-yellow-900 p-3 text-center text-white focus:outline-none cursor-pointer" %>
+  <div class="mb-50 flex justify-center">
+    <%= link_to "編集する", edit_user_path(current_user), class: "w-40 rounded-md bg-yellow-900 p-3 text-center text-white focus:outline-none cursor-pointer" %>
   </div>
 <% else %>
+  <div class="mb-18">
     <%= render "post" %>
+  </div>
 <% end %>
