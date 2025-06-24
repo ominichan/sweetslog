@@ -22,5 +22,7 @@
     <%= link_to "編集する", edit_user_path(current_user), class: "w-40 rounded-md bg-yellow-900 p-3 text-center text-white focus:outline-none cursor-pointer" %>
   </div>
 <% else %>
+  <div class="mb-18">
     <%= render "post" %>
+  </div>
 <% end %>
