@@ -13,7 +13,8 @@ RUN apt-get update -qq && apt-get install -y \
   libpq-dev \
   libffi-dev \
   nodejs \
-  yarn
+  yarn \
+  imagemagick
 
 # Rails app lives here
 WORKDIR /rails
