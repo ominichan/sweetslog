@@ -18,11 +18,6 @@ RUN apt-get update -qq && apt-get install -y \
 # Rails app lives here
 WORKDIR /rails
 
-COPY Gemfile* ./
-RUN bundle install
-
-COPY . .
-
 # Install base packages
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y curl libjemalloc2 libvips postgresql-client && \
@@ -92,4 +87,4 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
+CMD ["./bin/rails", "server"]
