@@ -5,7 +5,7 @@
       <% if @user.image.attached? %>
         <%= image_tag url_for(@user.image.variant(resize_to_fill: [50, 50])), class: "rounded-full transition duration-200 group-hover:scale-105" %>
       <% else %>
-        <%= image_tag "プロフィールマーク.png", class:"rounded-full transition duration-300 group-hover:scale-105", width:50 %>
+        <%= image_tag "mypage_profile_icon.png", class:"rounded-full transition duration-300 group-hover:scale-105", width:50 %>
       <% end %>
       <div class="my-auto ml-5 text-base font-bold text-yellow-900">
         <%= @user.name %>
