@@ -1,7 +1,7 @@
 <% if user.image.attached? %>
     <%= image_tag url_for(user.image.variant(resize_to_fill: [20, 20])), class: "rounded-full transition duration-200 group-hover:scale-105" %>
 <% else %>
-  <%= image_tag "プロフィールマーク.png", class:"rounded-full", width: 25%>
+  <%= image_tag "mypage_profile_icon.png", class:"rounded-full", width: 25%>
 <% end %>
 <div class="mx-2 my-auto">
   <%= link_to user.name, profile_user_path(user), class: "text-xs font-bold text-yellow-900 hover:text-yellow-700" %>
