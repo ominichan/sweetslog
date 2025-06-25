@@ -8,8 +8,20 @@
 ARG RUBY_VERSION=3.2.3
 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 
+RUN apt-get update -qq && apt-get install -y \
+  build-essential \
+  libpq-dev \
+  libffi-dev \
+  nodejs \
+  yarn
+
 # Rails app lives here
 WORKDIR /rails
+
+COPY Gemfile* ./
+RUN bundle install
+
+COPY . .
 
 # Install base packages
 RUN apt-get update -qq && \
@@ -80,4 +92,4 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["./bin/rails", "server"]
+CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
