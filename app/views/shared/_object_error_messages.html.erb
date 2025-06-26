@@ -4,6 +4,9 @@
       <% object.errors.each do |error| %>
         <li><%= error.full_message %></li>
       <% end %>
+      <% if @post.image.attached? %>
+        <li>もう一度画像を選択してください</li>
+      <% end %>
     </ul>
   </div>
 <% end %>
