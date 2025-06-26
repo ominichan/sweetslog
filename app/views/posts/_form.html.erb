@@ -6,7 +6,7 @@
     <div class="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 justify-items-center">
       <div>
         <p class= "text-yellow-950">　</p>
-        <% if @post.persisted? && @post.image.attached? %>
+        <% if @post.persisted? %>
           <%= image_tag (@post.image.variant(resize_to_fill: [360, 360])) %>
         <% else %>
           <div class="container h-90 w-90 flex items-center justify-center rounded-xl bg-gray-300">
