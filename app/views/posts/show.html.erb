@@ -14,14 +14,16 @@
         <div class="text-2xl font-bold text-gray-800">
           <%= @post.title %>
         </div>
-        <% if current_user.notown?(@post) %>
-          <div>
-          <%= render "like_buttons", { post: @post } %>
-          </div>
-        <% else %>
-          <div class="flex gap-2">
-            <%= render "edit_and_destroy_buttons", { post: @post } %>
-          </div>
+        <% if current_user %>
+          <% if current_user.notown?(@post) %>
+            <div>
+              <%= render "like_buttons", { post: @post } %>
+            </div>
+          <% else %>
+            <div class="flex gap-2">
+              <%= render "edit_and_destroy_buttons", { post: @post } %>
+            </div>
+          <% end %>
         <% end %>
       </div>
       <div class="flex mt-1 gap-2">
