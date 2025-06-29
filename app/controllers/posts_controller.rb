@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :likes, :tags]
+  before_action :authenticate_user!, only: [ :new, :create, :edit, :update, :destroy, :likes, :tags ]
   def index
     @q = Post.ransack(params[:q])
     if params[:tag_name]
