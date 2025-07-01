@@ -2,7 +2,7 @@
   ログイン
 </div>
   
-<div class="mt-6 container mx-auto px-2 pt-10 pb-6 bg-white shadow-sm shadow-2xs rounded-xl max-w-screen-sm">
+<div class="w-[90%] md:w-150 mt-6 container mx-auto px-2 pt-10 pb-6 bg-white shadow-sm shadow-2xs rounded-xl">
   <div class="justify-items-center">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <% if alert.present? %>
@@ -13,12 +13,12 @@
 
       <div class="flex flex-col">
         <%= f.label :email, class: "text-yellow-950 font-bold" %>
-        <%= f.email_field :email, class: "w-96 p-2 bg-stone-50 border border-stone-950 rounded-md", autofocus: true, placeholder:"メールアドレス" %>
+        <%= f.email_field :email, class: "w-65 md:w-96 p-2 bg-stone-50 border border-stone-950 rounded-md", autofocus: true, placeholder:"メールアドレス" %>
       </div>
 
       <div class="flex flex-col mt-6">
         <%= f.label :password, class: "text-yellow-950 font-bold" %>
-        <%= f.password_field :password, class: "w-96 p-2 bg-stone-50 border border-stone-950 rounded-md", placeholder:"パスワード" %>
+        <%= f.password_field :password, class: "w-65 md:w-96 p-2 bg-stone-50 border border-stone-950 rounded-md", placeholder:"パスワード" %>
       </div>
 
       <% if devise_mapping.rememberable? %>

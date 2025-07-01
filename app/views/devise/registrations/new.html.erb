@@ -1,34 +1,33 @@
 <div class= "mt-15 mb-10 font-bold text-center text-3xl text-yellow-900">
   ユーザー登録
 </div>
-<div class="mt-6 container mx-auto px-2 pt-10 pb-6 bg-white shadow-sm shadow-2xs rounded-xl max-w-screen-sm">
-  <div class="justify-items-center">
+<div class="w-[90%] md:w-150 mt-6 container mx-auto px-2 pt-10 pb-6 bg-white shadow-sm shadow-2xs rounded-xl">
+  <div class="flex items-center justify-center">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       <div class="flex flex-col">
         <%= f.label :name, class: "text-yellow-950 font-bold" %>
-        <%= f.text_field :name, class: "w-96 p-1.5 bg-stone-50 border border-stone-950 rounded-md", autofocus: true, placeholder:"ユーザーネーム" %>
+        <%= f.text_field :name, class: "w-65 md:w-96 p-1.5 bg-stone-50 border border-stone-950 rounded-md", autofocus: true, placeholder:"ユーザーネーム" %>
       </div>
       <div class="flex flex-col mt-6">
         <%= f.label :email, class: "text-yellow-950 font-bold" %>
-        <%= f.email_field :email, class: "w-96 p-1.5 bg-stone-50 border border-stone-950 rounded-md", placeholder:"メールアドレス" %>
+        <%= f.email_field :email, class: "w-65 md:w-96 p-1.5 bg-stone-50 border border-stone-950 rounded-md", placeholder:"メールアドレス" %>
       </div>
 
       <div class="flex flex-col mt-6">
         <%= f.label :password, class: "text-yellow-950 font-bold" %>
-        <%= f.password_field :password, class: "w-96 p-1.5 bg-stone-50 border border-stone-950 rounded-md", placeholder:"パスワード（6文字以上）" %>
+        <%= f.password_field :password, class: "w-65 md:w-96 p-1.5 bg-stone-50 border border-stone-950 rounded-md", placeholder:"パスワード（6文字以上）" %>
       </div>
 
       <div class="flex flex-col mt-6">
         <%= f.label :password_confirmation, class: "text-yellow-950 font-bold" %>
-        <%= f.password_field :password_confirmation, class: "w-96 p-1.5 bg-stone-50 border border-stone-950 rounded-md", placeholder:"もう一度入力してください" %>
+        <%= f.password_field :password_confirmation, class: "w-65 md:w-96 p-1.5 bg-stone-50 border border-stone-950 rounded-md", placeholder:"もう一度入力してください" %>
       </div>
 
       <div class="mt-6 actions flex justify-center">
         <%= f.submit (t "device.registrations.new.sign_in"), class: "w-44 rounded-md bg-yellow-900 p-3 text-white focus:outline-none cursor-pointer" %>
       </div>
     <% end %>
-
-    <%= render "devise/shared/links" %>
   </div>
+  <%= render "devise/shared/links" %>
 </div>
