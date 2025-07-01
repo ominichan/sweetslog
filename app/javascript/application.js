@@ -29,3 +29,12 @@ $(window).on("scroll load", function(){
     }
   });
 });
+
+$(function(){
+  const hamburger = $('#js-hamburger');
+  const drawer = $('#js-drawer');
+  hamburger.on('click',function(){
+    hamburger.toggleClass("is-checked")
+    drawer.toggleClass("is-checked")
+  })
+})
