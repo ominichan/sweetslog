@@ -1,4 +1,4 @@
-<div class="justify-items-center">
+<div class="flex items-center justify-center">
   <%= search_form_for q, url: url, class: "flex flex-col lg:flex-row lg:gap-2" do |f| %>
     <% if current_user && current_page?(my_posts_user_path(current_user))%>
       <div>
