@@ -1,7 +1,7 @@
-<div class= "mt-15 mb-10 font-bold text-center text-3xl text-yellow-900">
-  ユーザー登録
-</div>
 <div class="w-[90%] md:w-150 mt-6 container mx-auto px-2 pt-10 pb-6 bg-white shadow-sm shadow-2xs rounded-xl">
+  <div class= "mt-4 mb-6 font-bold text-center text-2xl text-yellow-900">
+    ユーザー登録
+  </div>
   <div class="flex items-center justify-center">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
