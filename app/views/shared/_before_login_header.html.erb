@@ -7,9 +7,9 @@
     </div>
     <div class="hidden lg:flex">
       <ul class="flex mr-2 text-yellow-900 text-sm font-semibold">
-        <%= link_to '投稿一覧', posts_path, class: "brown-button" %>
-        <%= link_to 'ログイン', new_user_session_path, class: "brown-button" %>
-        <%= link_to 'ユーザー登録', new_user_registration_path, class: "brown-button" %>
+        <%= link_to '投稿一覧', posts_path, class: "#{current_page?(posts_path) ? "current-brown-button" : "brown-button"}" %>
+        <%= link_to 'ログイン', new_user_session_path, class: "#{current_page?(new_user_session_path) ? "current-brown-button" : "brown-button"}" %>
+        <%= link_to 'ユーザー登録', new_user_registration_path, class: "#{current_page?(new_user_registration_path) ? "current-brown-button" : "brown-button"}" %>
       </ul>
     </div>
 
