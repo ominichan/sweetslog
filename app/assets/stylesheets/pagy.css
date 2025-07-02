@@ -16,20 +16,20 @@
   display: block;
   text-decoration: none;
   border-radius: 0.5rem;
-  background-color: var(--color-yellow-700);
+  background-color: var(--color-yellow-900);
   padding: 0.25rem 0.75rem;
   color: inherit;
 }
 .pagy a:not(.gap):hover {
-  background-color: var(--color-yellow-950);
+  background-color: var(--color-yellow-700);
 }
 .pagy a:not(.gap):not([href]) {
   cursor: default;
-  background-color: var(--color-yellow-700);
+  background-color: var(--color-yellow-900);
   color: white;
 }
 .pagy a:not(.gap).current {
-  background-color: var(--color-yellow-900);
+  background-color: var(--color-yellow-950);
   color: white;
 }
 
