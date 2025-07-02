@@ -1,8 +1,7 @@
-<div class= "mt-12 font-bold text-center text-2xl text-yellow-900">
-  ログイン
-</div>
-  
-<div class="w-[90%] md:w-150 mt-6 container mx-auto px-2 pt-10 pb-6 bg-white shadow-sm shadow-2xs rounded-xl">
+<div class="w-[90%] md:w-150 my-8 container mx-auto px-2 pt-10 pb-6 bg-white shadow-sm shadow-2xs rounded-xl">
+  <div class="my-4 mb-6 font-bold text-center text-2xl text-yellow-900">
+    ログイン
+  </div>
   <div class="flex items-center justify-center">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <% if alert.present? %>
