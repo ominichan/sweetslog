@@ -1,13 +1,15 @@
 <%= turbo_stream.replace "diagnoses_result" do %>
-  <% if @result.present?%>
-    <p class="mt-10">今のあなたにぴったりのスイーツは…</p>
-    <div class="mt-6 mb-10 text-lg font-bold">✨ <%= @result %> ✨</div>
-    <%= button_to "もう一度診断する", new_diagnose_path, method: :get, class: "mt-4 w-44 rounded-md bg-yellow-900 p-3 text-white focus:outline-none cursor-pointer" %>
+  <% if @result.present? %>
+    <div class="flex flex-col items-center justify-center">
+      <p class="mt-10">今のあなたにぴったりのスイーツは…</p>
+      <div class="mt-6 mb-10 text-lg font-bold">✨ <%= @result %> ✨</div>
+      <%= button_to "もう一度診断する", new_diagnose_path, method: :get, class: "mt-4 w-44 rounded-md bg-yellow-900 p-3 text-white focus:outline-none cursor-pointer" %>
+    </div>
   <% else %>
-    <div class="my-10 justify-items-center">
+    <div class="my-10 flex flex-col items-center justify-center">
       <p>選択されていない項目があります。</p>
       <p>もう一度選択してください！</p>
+      <%= button_to "戻る", new_diagnose_path, method: :get, class: "mt-4 w-44 rounded-md bg-yellow-900 p-3 text-white focus:outline-none cursor-pointer" %>
     </div>
-    <%= button_to "戻る", new_diagnose_path, method: :get, class: "mt-4 w-44 rounded-md bg-yellow-900 p-3 text-white focus:outline-none cursor-pointer" %>
   <% end %>
 <% end %>
