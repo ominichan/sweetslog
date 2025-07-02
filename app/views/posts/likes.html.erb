@@ -1,13 +1,13 @@
 <%= render 'shared/flash_messages' %>
 
-<div class= "my-10 font-bold text-center text-2xl text-yellow-900">
+<div class= "my-8 font-bold text-center text-2xl text-yellow-900">
   お気に入り投稿一覧
 </div>
 
 <%= render 'search_form', q: @q, url: likes_posts_path %>
 
 <% if @like_posts.present? %>
-  <div class="mt-7 max-w-screen-xl mx-auto">
+  <div class="my-8 max-w-screen-xl mx-auto">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
       <%= render @like_posts %>
     </div>
