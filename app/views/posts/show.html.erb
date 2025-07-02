@@ -74,6 +74,7 @@
   </div>
 </div>
 
+<%= render "comment_area", { user: @user } %>
 <script>
   function initMap(){
     const mapPosition = {lat: <%= @post.latitude || 0 %> , lng: <%= @post.longitude || 0 %> };
