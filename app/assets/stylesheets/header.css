@@ -5,9 +5,10 @@
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   border-radius: 0.5rem;
-  background-color: var(--color-yellow-900);
+  background-color: var(--color-yellow-50);
 }
 
 .brown-button:hover {
-  background-color: var(--color-yellow-700);
+  background-color: var(--color-yellow-900);
+  color: var(--color-yellow-50);
 }
