@@ -1,5 +1,5 @@
 <%= render 'shared/flash_messages' %>
-<div class="flex flex-col items-center justify-center m-10">
+<div class="flex flex-col items-center justify-center m-8">
   <%= image_tag "SweetsLog_logo.png" %>
   <ul class= "text-center text-xs sm:text-base text-yellow-900">
     <li>美味しい<span class="font-bold text-base sm:text-lg">「スイーツ」</span>を食べた</li>
@@ -17,10 +17,19 @@
   </div>
 </div>
 
-<div class="box fadeIn mx-auto max-w-[90%] mb-8">
-  <div class= "mt-20 mb-10 text-center text-base text-yellow-900">
+<div class="flex flex-col items-center justify-center animate-bounce">
+  <span class="mt-5 text-yellow-900">Scroll</span>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 text-yellow-900">
+  <path fill-rule="evenodd" d="M11.47 13.28a.75.75 0 0 0 1.06 0l7.5-7.5a.75.75 0 0 0-1.06-1.06L12 11.69 5.03 4.72a.75.75 0 0 0-1.06 1.06l7.5 7.5Z" clip-rule="evenodd" />
+  <path fill-rule="evenodd" d="M11.47 19.28a.75.75 0 0 0 1.06 0l7.5-7.5a.75.75 0 1 0-1.06-1.06L12 17.69l-6.97-6.97a.75.75 0 0 0-1.06 1.06l7.5 7.5Z" clip-rule="evenodd" />
+  </svg>
+</div>
+
+
+<div class="box fadeIn mx-auto max-w-[90%]">
+  <div class="m-10 text-center text-base text-yellow-900">
     <ul>
-      <li>SweetsLog は</li>
+      <li><span class="text-lg font-bold">SweetsLog</span> は</li>
       <li>美味しいスイーツを食べた幸せな記憶を記録し、</li>
       <li>シェアできるアプリです。</li>
     </ul>
@@ -79,7 +88,9 @@
     </div>
   </div>
   <% unless user_signed_in? %>
-    <%= link_to '会員登録（無料）をして使ってみる', new_user_registration_path, class: "w-[90%] md:w-90 mx-auto mt-8 mb-4 px-5 py-2.5 block text-base text-center text-white bg-yellow-900 rounded-xl hover:bg-yellow-700" %>
-    <%= link_to 'みんなの投稿を見てみる', posts_path, class: "w-[90%] md:w-90 mx-auto px-5 py-2.5 block text-base text-center text-white bg-yellow-900 rounded-xl hover:bg-yellow-700" %>
+    <div class="w-[90%] text-white md:w-90 mx-auto my-10 text-center text-base">
+      <%= link_to '会員登録（無料）をして使ってみる', new_user_registration_path, class: "block px-5 py-2.5 bg-yellow-900 rounded-xl hover:bg-yellow-700" %>
+      <%= link_to 'みんなの投稿を見てみる', posts_path, class: "block mt-4 px-5 py-2.5 bg-yellow-900 rounded-xl hover:bg-yellow-700" %>
+    </div>
   <% end %>
 </div>
