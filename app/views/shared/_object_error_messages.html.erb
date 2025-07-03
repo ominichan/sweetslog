@@ -1,10 +1,10 @@
 <% if object.errors.any? %>
   <div id="error_explanation" class="m-4 px-4 py-2 rounded-md text-rose-950 bg-rose-200 border-2 border-rose-900">
-    <ul class="mb-0">
+    <ul>
       <% object.errors.each do |error| %>
         <li><%= error.full_message %></li>
       <% end %>
-      <% if @post.image.attached? %>
+      <% if controller_name == 'posts' && ['create', 'update'].include?(action_name) && @post.image.attached? %>
         <li>もう一度画像を選択してください</li>
       <% end %>
     </ul>
