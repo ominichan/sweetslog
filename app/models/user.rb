@@ -11,8 +11,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
 
-  def notown?(post)
-    !posts.include?(post)
+  def own?(post)
+    posts.include?(post)
   end
 
   def like(post)
