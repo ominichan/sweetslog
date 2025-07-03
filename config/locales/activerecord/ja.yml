@@ -11,3 +11,5 @@ ja:
         tag_names: タグ
         spot: 店名
         address: 住所
+      comment:
+        body: コメント

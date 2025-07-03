@@ -1,3 +1,4 @@
+<div class="flex">
 <% if user.image.attached? %>
     <%= image_tag url_for(user.image.variant(resize_to_fill: [20, 20])), class: "rounded-full transition duration-200 group-hover:scale-105" %>
 <% else %>
@@ -5,4 +6,5 @@
 <% end %>
 <div class="mx-2 my-auto">
   <%= link_to user.name, profile_user_path(user), class: "text-xs font-bold text-yellow-900 hover:text-yellow-700" %>
+</div>
 </div>

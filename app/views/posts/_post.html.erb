@@ -18,12 +18,12 @@
       <%= post.created_at.strftime('%Y/%m/%d') %>
     </div>
     <% if current_user %>
-      <% if current_user.notown?(post) %>
-        <%= render "like_buttons", { post: post } %>
-      <% else %>
-      <div class="flex gap-1">
-        <%= render "posts/edit_and_destroy_buttons", { post: post } %>
+      <% if current_user.own?(post) %>
+        <div class="flex gap-1">
+          <%= render "posts/edit_and_destroy_buttons", { post: post } %>
         </div>
+      <% else %>
+        <%= render "like_buttons", { post: post } %>
       <% end %>
     <% end %>
   </div>
