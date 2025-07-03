@@ -2,7 +2,7 @@
 <div class="w-[90%] min-h-screen md:max-w-screen-lg container mx-auto px-5 py-15 my-8 bg-white shadow-sm rounded-xl">
   <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 justify-items-center">
     <div class="col-span-2 md:col-span-1 flex justify-center">
-      <% if @post.persisted? %>
+      <% if @post.image.persisted? %>
         <%= image_tag(@post.image.variant(resize_to_fill: [360, 360]), class:"rounded-xl") %>
       <% else %>
         <%= image_tag 'No_Image.png', class:"rounded-xl transition duration-300 group-hover:scale-105" %>

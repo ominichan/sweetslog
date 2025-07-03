@@ -6,5 +6,7 @@
   <% if @comments.present? %>
     <div class="my-4 border-b border-yellow-950 w-full "></div>
   <% end %>
-  <%= render @comments %>
+  <div id="comments_area">
+    <%= render @comments %>
+  </div>
 </div>
