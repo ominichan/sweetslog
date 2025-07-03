@@ -1,0 +1,8 @@
+<div>
+  <%= form_with model: comment, url: post_comments_path(post) do |f| %>
+    <div class="flex items-center">
+    <%= f.text_area :body, class: "w-full bg-stone-50 p-2 border border-yellow-950 rounded-md", placeholder: "コメント" %>
+    <%= f.submit "投稿", class: "ml-2 w-20 p-4  bg-yellow-900 text-white hover:bg-yellow-700 rounded-md cursor-pointer" %>
+    </div>
+  <% end %>
+</div>

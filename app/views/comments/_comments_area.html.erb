@@ -1,0 +1,10 @@
+<div class="w-[90%] md:max-w-screen-lg container mx-auto my-8 px-15 py-6 bg-white shadow-sm shadow-2xs rounded-xl">
+  <div class="text-lg mb-2">コメント（<%= @post.comments.count %>件）</div>
+
+  <%= render "comments/form", comment: @comment, post: @post %>
+
+  <% if @comments.present? %>
+    <div class="my-4 border-b border-yellow-950 w-full "></div>
+  <% end %>
+  <%= render @comments %>
+</div>

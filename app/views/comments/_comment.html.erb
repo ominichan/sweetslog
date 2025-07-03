@@ -1,0 +1,20 @@
+<div class="p-3 mb-3 bg-yellow-50 rounded-md shadow-sm" >
+  <%= render "user_profile_button", { user: comment.user } %>
+  <div class="p-2"><%= simple_format(comment.body) %></div>
+  <% if current_user.own?(comment) %>
+    <td class="action">
+      <ul class="list-inline justify-content-center" style="float: right;">
+        <li class="list-inline-item">
+          <%= link_to "#", class: "edit-comment-link" do %>
+            <i class="bi bi-pencil-fill"></i>
+          <% end %>
+        </li>
+        <li class="list-inline-item">
+          <%= link_to "#", class: "delete-comment-link" do %>
+            <i class="bi bi-trash-fill"></i>
+          <% end %>
+        </li>
+      </ul>
+    </td>
+  <% end %>
+</div>

@@ -1,5 +1,5 @@
 <%= render "shared/flash_messages" %>
-<div class="w-[90%] min-h-screen md:max-w-screen-lg container mx-auto px-5 py-15 my-15 bg-white shadow-sm shadow-2xs rounded-xl">
+<div class="w-[90%] min-h-screen md:max-w-screen-lg container mx-auto px-5 py-15 my-8 bg-white shadow-sm rounded-xl">
   <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 justify-items-center">
     <div class="col-span-2 md:col-span-1 flex justify-center">
       <% if @post.persisted? %>
@@ -15,22 +15,16 @@
             <%= @post.title %>
           </div>
           <% if current_user %>
-            <% if current_user.notown?(@post) %>
-              <div>
-                <%= render "like_buttons", { post: @post } %>
-              </div>
+            <% if current_user.own?(@post) %>
+              <%= render "edit_and_destroy_buttons", { post: @post } %>
             <% else %>
-              <div class="flex gap-2">
-                <%= render "edit_and_destroy_buttons", { post: @post } %>
-              </div>
+              <%= render "like_buttons", { post: @post } %>
             <% end %>
           <% end %>
         </div>
         <div class="flex mt-1 gap-2">
-          <div class="flex">
-            <%= render "user_profile_button", { user: @user } %>
-          </div>
-          <div class=" text-gray-400">
+          <%= render "user_profile_button", { user: @user } %>
+          <div class="text-gray-400">
             <%= l @post.created_at %>
           </div>
         </div>
@@ -65,16 +59,13 @@
     </div>
 
     <div class="p-4 col-span-2 w-[95%]">
-      <div id="map" class="h-80 md:h-120 my-6 rounded-xl"></div>
+      <div id="map" class="h-80 md:h-100 rounded-xl"></div>
     </div>
-  </div>
-
-  <div class="flex items-center justify-center">
-    <div class="border-b border-yellow-950 w-[95%]"></div>
   </div>
 </div>
 
-<%= render "comment_area", { user: @user } %>
+<%= render "comments/comments_area" %>
+
 <script>
   function initMap(){
     const mapPosition = {lat: <%= @post.latitude || 0 %> , lng: <%= @post.longitude || 0 %> };
