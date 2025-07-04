@@ -1,11 +1,10 @@
-<div id="comment-form" class="w-full">
-  <%= form_with model: comment, url: post_comments_path(post), html: { class: "w-full" } do |f| %>
-    <%= render "shared/object_error_messages", object: @comment %>
+<div id="comment-form" class="mb-4">
+  <%= render "shared/object_error_messages", object: @comment %>
+  <%= form_with model: comment, url: post_comments_path(post) do |f| %>
 
-    <%= f.text_area :body, class:"w-full min-w-0 bg-stone-50 p-2 border border-yellow-950 rounded-md", placeholder: "コメント" %>
-    <div class="flex justify-end">
-      <%= f.submit "投稿", class: "mt-2 w-20 p-3 bg-yellow-900 text-white hover:bg-yellow-700 rounded-md cursor-pointer" %>
-    </div>
-
+  <div class="flex items-center justify-center">
+    <div class="grow"><%= f.text_area :body, class:"mt-1 w-full p-3 bg-stone-50 border border-yellow-950 rounded-md", placeholder: "コメント", rows: "1.5" %></div>
+    <div><%= f.submit "投稿", class: "ml-1 p-3 bg-yellow-900 text-white hover:bg-yellow-700 rounded-md cursor-pointer" %></div>
+  </div>
   <% end %>
 </div>
