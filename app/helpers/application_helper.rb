@@ -4,10 +4,10 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: "SweetsLog",
-      title: "美味しい『スイーツ』を食べた幸せな気持ち『ログ』しよう",
+      title: "SweetsLog ～美味しい『スイーツ』を食べた幸せな気持ち『ログ』しよう～",
       reverse: true,
       charset: "utf-8",
-      description: "SweetsLogはお店で食べた美味しいスイーツを記録・シェアできるアプリです。",
+      description: "お店で食べたスイーツを記録・シェアできるアプリ",
       keywords: "スイーツ,ケーキ,甘党,カフェ,共有,シェア",
       canonical: "https://sweetslog.fly.dev/",
       separator: "|",
