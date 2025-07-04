@@ -10,7 +10,7 @@
       <div class="max-w-275 mx-auto">
         <div class="mb-4 text-center text-lg font-semibold text-yellow-900">あなたへのおすすめ投稿</div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-items-center">
-          <%= render @recommend_posts %>
+          <%= render @recommend_posts, show_actions: false %>
         </div>
       </div>
     </div>

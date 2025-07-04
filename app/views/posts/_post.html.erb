@@ -17,7 +17,7 @@
     <div class="flex justify-self-start text-yellow-600">
       <%= post.created_at.strftime('%Y/%m/%d') %>
     </div>
-    <% if current_user %>
+    <% if local_assigns[:show_actions] != false && current_user %>
       <% if current_user.own?(post) %>
         <div class="flex gap-1">
           <%= render "posts/edit_and_destroy_buttons", { post: post } %>
