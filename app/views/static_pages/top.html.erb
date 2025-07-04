@@ -35,7 +35,7 @@
     </ul>
   </div>
 
-  <div class="my-8 justify-items-center grid grid-cols-1 gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+  <div class="mb-12 justify-items-center grid grid-cols-1 gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
     <div class="w-75 h-75 p-10 bg-white shadow-sm rounded-xl">
       <div class= "flex flex-wrap justify-center">
         <%= image_tag "top_posts_icon.png" %>
@@ -87,10 +87,10 @@
       </div>
     </div>
   </div>
-  <% unless user_signed_in? %>
-    <div class="w-[90%] text-white md:w-90 mx-auto my-10 text-center text-base">
-      <%= link_to '会員登録（無料）をして使ってみる', new_user_registration_path, class: "block px-5 py-2.5 bg-yellow-900 rounded-xl hover:bg-yellow-700" %>
-      <%= link_to 'みんなの投稿を見てみる', posts_path, class: "block mt-4 px-5 py-2.5 bg-yellow-900 rounded-xl hover:bg-yellow-700" %>
-    </div>
-  <% end %>
+  <div class="w-[90%] text-white md:w-90 mx-auto mb-12 text-center text-base">
+    <%= link_to 'みんなの投稿を見る', posts_path, class: "block px-5 py-2.5 bg-yellow-900 rounded-xl hover:bg-yellow-700" %>
+    <% unless user_signed_in? %>
+      <%= link_to '会員登録（無料）をして使ってみる', new_user_registration_path, class: "mt-4 block px-5 py-2.5 bg-yellow-900 rounded-xl hover:bg-yellow-700" %>
+    <% end %>
+  </div>
 </div>
