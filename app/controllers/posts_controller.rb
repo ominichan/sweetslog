@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [ :new, :create, :edit, :update, :destroy, :likes, :tags ]
+  before_action :set_recommend_posts, only: [ :index ]
+
   def index
     @q = Post.ransack(params[:q])
     if params[:tag_name]
@@ -64,4 +66,30 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :body, :image, :tag_names, :spot, :address, :latitude, :longitude)
   end
+
+  private
+
+  def set_recommend_posts  
+    @recommend_posts = recommend_posts
+  end
+
+  def recommend_posts
+    return Post.none unless current_user
+
+    liked_post_ids = current_user.like_posts.pluck(:post_id)
+
+    similar_user_ids = Like.where(post_id: liked_post_ids)
+                           .where.not(user_id: current_user.id)
+                           .distinct.pluck(:user_id)
+    return Post.none if similar_user_ids.empty?
+
+    similar_user_post_ids = Like.where(user_id: similar_user_ids)
+                                .where.not(post_id: liked_post_ids)
+                                .distinct.pluck(:post_id)
+
+    return Post.none if similar_user_post_ids.empty?
+
+    Post.where(id: similar_user_post_ids).limit(4)
+  end
 end
+
