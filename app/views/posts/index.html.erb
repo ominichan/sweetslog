@@ -1,8 +1,21 @@
 <%= render "shared/flash_messages" %>
 
-<div class="mt-8">
+<div class="my-8">
   <%= render 'search_form', q: @q, url: posts_path %>
 </div>
+
+<% if params[:q].blank? && (params[:page].blank? || params[:page] == "1") %>
+  <% if @recommend_posts.present? %>
+    <div class="w-[90%] md:max-w-290 container mx-auto p-6 my-6 bg-yellow-100 shadow-sm rounded-xl">
+      <div class="max-w-275 mx-auto">
+        <div class="mb-4 text-center text-lg font-semibold text-yellow-900">あなたへのおすすめ投稿</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 justify-items-center">
+          <%= render @recommend_posts %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 
 <% if @posts.present? %>
   <div class="my-8 max-w-275 mx-auto">
