@@ -89,6 +89,6 @@ class PostsController < ApplicationController
 
     return Post.none if similar_user_post_ids.empty?
 
-    Post.where(id: similar_user_post_ids).limit(4)
+    Post.where(id: similar_user_post_ids).where.not(user_id: current_user.id).limit(4)
   end
 end
