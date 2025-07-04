@@ -69,7 +69,7 @@ class PostsController < ApplicationController
 
   private
 
-  def set_recommend_posts  
+  def set_recommend_posts
     @recommend_posts = recommend_posts
   end
 
@@ -92,4 +92,3 @@ class PostsController < ApplicationController
     Post.where(id: similar_user_post_ids).limit(4)
   end
 end
-
