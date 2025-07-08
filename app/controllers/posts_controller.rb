@@ -60,14 +60,18 @@ class PostsController < ApplicationController
     @tag = Tag.new
   end
 
+def autocomplete
+  @tags = Tag.where("name LIKE ?", "%#{params[:q]}%")
+  respond_to do |format|
+    format.js
+  end
+end
 
   private
 
   def post_params
     params.require(:post).permit(:title, :body, :image, :tag_names, :spot, :address, :latitude, :longitude)
   end
-
-  private
 
   def set_recommend_posts
     @recommend_posts = recommend_posts

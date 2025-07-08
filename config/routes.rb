@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create edit destroy], shallow: true
     collection do
       get :likes
+      get :autocomplete
     end
   end
   resources :likes, only: %i[ create destroy ]
