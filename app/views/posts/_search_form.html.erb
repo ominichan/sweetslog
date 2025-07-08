@@ -9,11 +9,13 @@
     <% end %>
     <%= f.select :address_cont, Prefecture.list, { include_blank: " 都道府県" }, class: "p-2 mt-2 lg:mt-0 w-74 lg:w-30 bg-stone-50 border border-yellow-950 rounded-md" %>
     <%= f.search_field :title_cont, placeholder: " メニュー名", class: "mt-2 lg:mt-0 p-2 w-74 lg:w-50 bg-stone-50 border border-yellow-950 rounded-md" %>
-    <div data-controller="autocomplete" data-autocomplete-url-value="/posts/autocomplete" role="combobox">
-      <%= f.search_field :tags_name_eq, data: { autocomplete_target: "input" }, placeholder: " タグ", class: "mt-2 lg:mt-0 p-2 w-74 lg:w-50 bg-stone-50 border border-yellow-950 rounded-md" %>
-      <%= f.hidden_field :tags, data: { autocomplete_target: "hidden" } %>
-      <ul class="list-group" data-autocomplete-target="results"></ul>
+
+    <div data-controller="autocomplete" data-autocomplete-url-value="<%= autocomplete_posts_path %>" role="combobox">
+      <%= f.search_field :tags_name_eq, data: { autocomplete_target: 'input' }, placeholder: " タグ", class: "mt-2 lg:mt-0 p-2 w-74 lg:w-50 bg-stone-50 border border-yellow-950 rounded-md" %>
+      <%= f.hidden_field :tags_name, data: { autocomplete_target: 'hidden' } %>
+      <ul class="list-group absolute w-[400px]" data-autocomplete-target="results"></ul>
     </div>
+
     <%= f.search_field :title_or_body_or_tags_name_cont, placeholder: " キーワード", class: "mt-2 lg:mt-0 p-2 w-74 lg:w-50 bg-stone-50 border border-yellow-950 rounded-md" %>
     <%= f.submit "検索", class: "mt-2 lg:mt-0 rounded-md bg-yellow-900 py-2 px-3 text-white focus:outline-none cursor-pointer" %>
   <% end %>

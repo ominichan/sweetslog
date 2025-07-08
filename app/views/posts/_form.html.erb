@@ -5,7 +5,7 @@
   <%= form_with model: @post do |f| %>
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 justify-items-center">
       <div class="justify-items-center">
-        <% if @post.persisted? %>
+        <% if @post.image.persisted? %>
           <%= image_tag(@post.image.variant(resize_to_fill: [360, 360]), class:"rounded-xl") %>
         <% else %>
           <div class="container w-65 h-65 sm:h-95 sm:w-95 mx-auto flex items-center justify-center rounded-xl bg-gray-300">

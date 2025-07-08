@@ -9,3 +9,9 @@ application.register("hello", HelloController)
 
 import ImagesController from "./images_controller"
 application.register("images", ImagesController)
+
+import { Application } from "@hotwired/stimulus"
+import { Autocomplete } from "stimulus-autocomplete"
+
+const application = Application.start()
+application.register("autocomplete", Autocomplete)
