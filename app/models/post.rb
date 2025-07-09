@@ -6,6 +6,8 @@ class Post < ApplicationRecord
 
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
+  after_destroy :cleanup_unused_tags
+
   has_many :comments, dependent: :destroy
 
   geocoded_by :address
@@ -32,5 +34,19 @@ class Post < ApplicationRecord
     self.tags = names.split(",").map do |name|
       Tag.find_or_create_by(name: name.strip)
     end
+  end
+
+  private
+
+  def remove_unused_tags
+    tags.each do |tag|
+      if tag.posts.where.not(id: self.id).empty?
+        tag.destroy
+      end
+    end
+  end
+
+  def cleanup_unused_tags
+    Tag.remove_unused
   end
 end
