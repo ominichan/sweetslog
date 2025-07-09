@@ -60,12 +60,6 @@ class PostsController < ApplicationController
     @tag = Tag.new
   end
 
-  def autocomplete
-   @tags = Tag.where("name LIKE ?", "%#{params[:q]}%").limit(10)
-
-  render partial: "autocomplete_tags", formats: :html
-  end
-
   private
 
   def post_params

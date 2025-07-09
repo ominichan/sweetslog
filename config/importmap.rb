@@ -3,4 +3,4 @@
 pin "application"
 pin "@hotwired/turbo-rails", to: "turbo.min.js"
 pin "jquery" # @3.7.1
-pin "stimulus-autocomplete", to: "stimulus-autocomplete.js"
+pin "stimulus-autocomplete", to: "https://ga.jspm.io/npm:stimulus-autocomplete@3.1.0/src/autocomplete.js"

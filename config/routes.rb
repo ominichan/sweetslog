@@ -16,10 +16,15 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create edit destroy], shallow: true
     collection do
       get :likes
-      get :autocomplete
     end
   end
   resources :likes, only: %i[ create destroy ]
+
+  resources :tags do
+    collection do
+      get :autocomplete
+    end
+  end
 
   get  "diagnoses/new", to: "diagnoses#new", as: "new_diagnose"
   post "diagnoses/result", to: "diagnoses#result", as: "diagnoses_result"
