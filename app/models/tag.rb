@@ -11,4 +11,8 @@ class Tag < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
     %w[post_tags posts]
   end
+
+  def self.remove_unused
+    left_outer_joins(:posts).where(posts: { id: nil }).destroy_all
+  end
 end

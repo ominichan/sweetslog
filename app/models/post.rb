@@ -6,7 +6,7 @@ class Post < ApplicationRecord
 
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
-  before_destroy :remove_unused_tags
+  after_destroy :cleanup_unused_tags
 
   has_many :comments, dependent: :destroy
 
@@ -40,10 +40,13 @@ class Post < ApplicationRecord
 
   def remove_unused_tags
     tags.each do |tag|
-      # 自分のポスト以外にタグが紐づいているか確認
       if tag.posts.where.not(id: self.id).empty?
         tag.destroy
       end
     end
+  end
+
+  def cleanup_unused_tags
+    Tag.remove_unused
   end
 end
