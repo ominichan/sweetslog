@@ -60,14 +60,11 @@ class PostsController < ApplicationController
     @tag = Tag.new
   end
 
-
   private
 
   def post_params
     params.require(:post).permit(:title, :body, :image, :tag_names, :spot, :address, :latitude, :longitude)
   end
-
-  private
 
   def set_recommend_posts
     @recommend_posts = recommend_posts

@@ -3,7 +3,7 @@
     <div class="m-2 flex flex-wrap justify-center mx-auto">
       <%= link_to post_path(post), class: "group" do %>
         <% if post.image.attached? %>
-          <%= image_tag url_for(post.image.variant(resize_to_fill: [200, 200])), class: "rounded-xl transition duration-200 group-hover:scale-105" %>
+          <%= image_tag url_for(post.image.variant(resize_to_fill: [200, 200])), class: "z-0 rounded-xl transition duration-200 group-hover:scale-105" %>
         <% else %>
           <%= image_tag "No_Image.png", class:"rounded-xl transition duration-300 group-hover:scale-105", width:200 %>
         <% end %>

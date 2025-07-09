@@ -26,4 +26,8 @@ module ApplicationHelper
       }
     }
   end
+
+  def katakana_to_hiragana(str)
+    str.tr("ァ-ン", "ぁ-ん")
+  end
 end

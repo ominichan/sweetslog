@@ -20,6 +20,12 @@ Rails.application.routes.draw do
   end
   resources :likes, only: %i[ create destroy ]
 
+  resources :tags do
+    collection do
+      get :autocomplete
+    end
+  end
+
   get  "diagnoses/new", to: "diagnoses#new", as: "new_diagnose"
   post "diagnoses/result", to: "diagnoses#result", as: "diagnoses_result"
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
