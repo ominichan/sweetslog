@@ -50,7 +50,7 @@ class UsersController < ApplicationController
       UserMailer.send_change_email(user).deliver_now
       redirect_to authentication_sent_mail_path, notice: "メールを送信しました。"
     else
-      flash.now[ :alert ] = "メールアドレスまたはパスワードが間違っています。"
+      flash.now[:alert] = "メールアドレスまたはパスワードが間違っています。"
       render :authentication, status: :unprocessable_entity
     end
   end

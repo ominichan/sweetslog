@@ -45,10 +45,10 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     port: 587,
-    domain: "localhost", 
+    domain: "localhost",
     address: "smtp.gmail.com",
-    user_name: ENV["GOOGLE_MAIL_ADDRESS"] ,
-    password: ENV["GOOGLE_APP_PASSWORD"] ,
+    user_name: ENV["GOOGLE_MAIL_ADDRESS"],
+    password: ENV["GOOGLE_APP_PASSWORD"],
     authentication: :plain,
     enable_starttls_auto: true
   }
