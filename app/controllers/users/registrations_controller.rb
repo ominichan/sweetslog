@@ -3,6 +3,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [ :create ]
   before_action :configure_account_update_params, only: [ :update ]
+  before_action :check_edit_token, only: [ :edit ]
+  after_action :clear_edit_token, only: [ :update ]
 
   # GET /resource/sign_up
   # def new
@@ -63,5 +65,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def after_update_path_for(resource)
     profile_user_path(current_user.id)
+  end
+
+  def check_edit_token
+    token = params[:token]
+    return if token.present? && current_user&.edit_profile_token == token
+
+    redirect_to root_path, alert: "不正なアクセスです。"
+  end
+
+  def clear_edit_token
+    @user.update(edit_profile_token: nil)
   end
 end

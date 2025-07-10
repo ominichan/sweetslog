@@ -43,7 +43,7 @@ ja:
         sign_up: "アカウント登録"
       user:
         signed_up: "ユーザーを登録しログインしました"
-        updated: "プロフィールを更新しました"
+        updated: "更新しました"
     sessions:
       user:
         signed_in: "ログインしました"
