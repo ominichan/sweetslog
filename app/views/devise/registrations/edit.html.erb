@@ -1,41 +1,45 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="w-[90%] md:w-150 md:my-22 mt-6 container mx-auto px-2 py-10 bg-white shadow-sm shadow-2xs rounded-xl">
+  <div class="my-4 mb-6 font-bold text-center text-2xl text-yellow-900">
+    個人情報変更
   </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+  <div class="justify-items-center">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <div class="mb-6">
+        <%= f.label :email, class: "block text-yellow-950 font-bold" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-96 py-2 px-2 bg-stone-50 border border-yellow-950 rounded-md" %>
+      </div>
+
+      <div class="mb-6">
+        <%= f.label :current_password, class: "block text-yellow-950 font-bold" %> <i>(本人確認のため入力してください。)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "w-96 py-2 px-2 bg-stone-50 border border-yellow-950 rounded-md" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="mb-6">
+        <%= f.label :password, class: "block text-yellow-950 font-bold" %> <i>(パスワードを変更しない場合、入力は不要です。)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "w-96 py-2 px-2 bg-stone-50 border border-yellow-950 rounded-md", placeholder:"パスワード（6文字以上）" %>
+      </div>
+
+      <div class="mb-6">
+        <%= f.label :password_confirmation, class: "block text-yellow-950 font-bold" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-96 py-2 px-2 bg-stone-50 border border-yellow-950 rounded-md" %>
+      </div>
+
+      <div class="mt-6 actions flex justify-center">
+        <%= f.submit "変更", class: "w-44 rounded-md bg-yellow-900 p-3 text-white focus:outline-none cursor-pointer" %>
+      </div>
     <% end %>
+    <div class="mt-6">
+      <%= button_to "アカウントを削除する", registration_path(resource_name),class: "w-44 rounded-md bg-rose-600 p-3 text-white focus:outline-none cursor-pointer", data: { confirm: "本当に削除しますか?", turbo_confirm: "本当に削除しますか?" }, method: :delete %>
+    </div>
+    <div class="mt-6">
+      <%= link_to "戻る", :back, class:"flex" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+</div>

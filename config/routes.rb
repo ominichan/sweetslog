@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   root "static_pages#top"
   devise_for :users, controllers: {
     registrations: "users/registrations",
@@ -11,6 +12,10 @@ Rails.application.routes.draw do
       get :profile
     end
   end
+
+  get "user_authentication", to: "users#authentication"
+  post "user_authentication", to: "users#confirm"
+  get "authentication_sent_mail", to: "users#authentication_sent_mail"
 
   resources :posts, only: %i[ index new create show edit update destroy ] do
     resources :comments, only: %i[create edit destroy], shallow: true
