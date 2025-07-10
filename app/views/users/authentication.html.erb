@@ -1,7 +1,8 @@
-<div class="w-[90%] md:w-150 my-8 lg:my-24 my-6 container mx-auto px-2 pt-10 pb-6 bg-white shadow-sm shadow-2xs rounded-xl">
+<div class="w-[90%] md:w-150 my-8 lg:my-20 my-6 container mx-auto px-2 pt-10 pb-6 bg-white shadow-sm shadow-2xs rounded-xl">
   <div class="my-4 mb-6 font-bold text-center text-2xl text-yellow-900">
     ユーザー確認
   </div>
+  <h2 class="text-center mb-4">個人情報変更用のメールを送信します。</h2>
   <div class="flex items-center justify-center">
     <%= form_with url: user_authentication_path do |f| %>
       <% if alert.present? %>
