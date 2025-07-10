@@ -35,9 +35,23 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to profile_user_path, notice: "プロフィールを更新しました。"
+      redirect_to profile_user_path, notice: "情報を更新しました。"
     else
       render :edit
+    end
+  end
+
+  def authentication
+  end
+
+  def confirm
+    user = User.find(current_user.id)
+    if user.email == params[:email] && user.valid_password?(params[:password])
+      UserMailer.send_change_email(user).deliver_now
+      redirect_to authentication_sent_mail_path, notice: "メールを送信しました。"
+    else
+      flash.now[:alert] = "メールアドレスまたはパスワードが間違っています。"
+      render :authentication, status: :unprocessable_entity
     end
   end
 
