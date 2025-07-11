@@ -84,6 +84,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def clear_edit_token
-    @user.update(edit_profile_token: nil, edit_profile_token_expires_at: nil)
+    current_user.update(edit_profile_token: nil, edit_profile_token_expires_at: nil)
   end
 end
