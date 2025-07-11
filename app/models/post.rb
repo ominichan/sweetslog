@@ -36,6 +36,24 @@ class Post < ApplicationRecord
     end
   end
 
+  def self.recommend_posts_for(user)
+    return none unless user
+
+    liked_post_ids = user.like_posts.pluck(:post_id)
+
+    similar_user_ids = Like.where(post_id: liked_post_ids)
+                           .where.not(user_id: user.id)
+                           .distinct.pluck(:user_id)
+    return none if similar_user_ids.empty?
+
+    similar_user_post_ids = Like.where(user_id: similar_user_ids)
+                                .where.not(post_id: liked_post_ids)
+                                .distinct.pluck(:post_id)
+    return none if similar_user_post_ids.empty?
+
+    where(id: similar_user_post_ids).where.not(user_id: user.id).limit(4)
+  end
+
   private
 
   def remove_unused_tags
