@@ -73,7 +73,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       current_user&.edit_profile_token == token &&
       current_user&.edit_profile_token_expires_at.present? &&
       current_user.edit_profile_token_expires_at > Time.current
-     
+
       return
     end
     if current_user&.edit_profile_token_expires_at.present? && current_user.edit_profile_token_expires_at < Time.current
@@ -84,6 +84,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def clear_edit_token
-    @user.update(edit_profile_token: nil, edit_profile_token_expires_at: nil)
+    current_user.update(edit_profile_token: nil, edit_profile_token_expires_at: nil)
   end
 end
