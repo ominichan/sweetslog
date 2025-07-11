@@ -1,11 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user, only: [ :show, :my_posts, :edit, :update ]
   def show
-    @user = current_user
   end
 
   def my_posts
-    @user = current_user
     @q = @user.posts.ransack(params[:q])
 
     if params[:date].present?
@@ -29,11 +28,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
   end
 
   def update
-    @user = current_user
     if @user.update(user_params)
       redirect_to profile_user_path
     else
@@ -45,7 +42,7 @@ class UsersController < ApplicationController
   end
 
   def confirm
-    user = User.find(current_user.id)
+    user = current_user
     if user.email == params[:email] && user.valid_password?(params[:password])
       UserMailer.send_change_email(user).deliver_now
       redirect_to authentication_sent_mail_path, notice: "メールを送信しました。"
@@ -59,5 +56,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :image)
+  end
+
+  def set_user
+    @user = current_user
   end
 end

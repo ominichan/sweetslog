@@ -69,12 +69,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def check_edit_token
     token = params[:token]
-    return if token.present? && current_user&.edit_profile_token == token
-
-    redirect_to root_path, alert: "不正なアクセスです。"
+    if token.present? &&
+      current_user&.edit_profile_token == token &&
+      current_user&.edit_profile_token_expires_at.present? &&
+      current_user.edit_profile_token_expires_at > Time.current
+     
+      return
+    end
+    if current_user&.edit_profile_token_expires_at.present? && current_user.edit_profile_token_expires_at < Time.current
+      redirect_to root_path, alert: "このURLは無効または期限切れです。"
+    else
+      redirect_to root_path, alert: "不正なアクセスです。"
+    end
   end
 
   def clear_edit_token
-    @user.update(edit_profile_token: nil)
+    @user.update(edit_profile_token: nil, edit_profile_token_expires_at: nil)
   end
 end

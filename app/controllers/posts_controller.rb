@@ -67,25 +67,6 @@ class PostsController < ApplicationController
   end
 
   def set_recommend_posts
-    @recommend_posts = recommend_posts
-  end
-
-  def recommend_posts
-    return Post.none unless current_user
-
-    liked_post_ids = current_user.like_posts.pluck(:post_id)
-
-    similar_user_ids = Like.where(post_id: liked_post_ids)
-                           .where.not(user_id: current_user.id)
-                           .distinct.pluck(:user_id)
-    return Post.none if similar_user_ids.empty?
-
-    similar_user_post_ids = Like.where(user_id: similar_user_ids)
-                                .where.not(post_id: liked_post_ids)
-                                .distinct.pluck(:post_id)
-
-    return Post.none if similar_user_post_ids.empty?
-
-    Post.where(id: similar_user_post_ids).where.not(user_id: current_user.id).limit(4)
+    @recommend_posts = Post.recommend_posts_for(current_user)
   end
 end
