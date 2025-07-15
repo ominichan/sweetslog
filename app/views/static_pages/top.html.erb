@@ -1,20 +1,10 @@
 <%= render 'shared/flash_messages' %>
-<div class="flex flex-col items-center justify-center m-8">
+<div class="flex flex-col items-center justify-center my-50 mx-10">
   <%= image_tag "SweetsLog_logo.png" %>
   <ul class= "text-center text-xs sm:text-base text-yellow-900">
     <li>美味しい<span class="font-bold text-base sm:text-lg">「スイーツ」</span>を食べた</li>
     <li>幸せな思い出<span class="font-bold text-base sm:text-lg">「ログ」</span>しよう</li>
   </ul>
-</div>
-
-<div class="box fadeIn">
-  <div class="slider">
-    <% @posts.each do |post| %>
-      <% if post.image.attached? %>
-        <div><%= image_tag(post.image.variant(resize_to_fill: [320, 320]), class:"rounded-xl") %></div>
-      <% end %>
-    <% end %>
-  </div>
 </div>
 
 <div class="flex flex-col items-center justify-center animate-bounce">
@@ -25,16 +15,25 @@
   </svg>
 </div>
 
+<div class="box fadeIn">
+  <div class="slider my-20">
+    <% @posts.each do |post| %>
+      <% if post.image.attached? %>
+        <div><%= image_tag(post.image.variant(resize_to_fill: [320, 320]), class:"rounded-xl") %></div>
+      <% end %>
+    <% end %>
+  </div>
 
-<div class="box fadeIn mx-auto max-w-[90%]">
-  <div class="m-10 text-center text-base text-yellow-900">
+  <div class="m-20 text-center text-base text-yellow-900">
     <ul>
       <li><span class="text-lg font-bold">SweetsLog</span> は</li>
       <li>美味しいスイーツを食べた幸せな記憶を記録し、</li>
       <li>シェアできるアプリです。</li>
     </ul>
   </div>
+</div>
 
+<div class="box fadeIn mx-auto max-w-[90%]">
   <div class="mb-12 justify-items-center grid grid-cols-1 gap-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
     <div class="w-75 h-75 p-10 bg-white shadow-sm rounded-xl">
       <div class= "flex flex-wrap justify-center">
