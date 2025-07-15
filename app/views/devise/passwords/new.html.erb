@@ -1,16 +1,25 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="w-[90%] md:w-150 my-8 lg:my-20 my-6 container mx-auto px-2 pt-10 pb-6 bg-white shadow-sm shadow-2xs rounded-xl">
+  <div class="my-4 mb-6 font-bold text-center text-2xl text-yellow-900">
+    パスワード再設定
   </div>
+  <h2 class="text-center mb-4">パスワード再設定用のメールを送信します。</h2>
+  <div class="flex items-center justify-center">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <% if alert.present? %>
+        <p class="my-6 px-2 py-2 rounded-md text-rose-950 bg-rose-200 border-2 border-rose-900">
+          <%= flash[:alert] %>
+        </p>
+      <% end %>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+      <div class="flex flex-col">
+        <%= f.label :email, class: "text-yellow-950 font-bold" %>
+        <%= f.email_field :email, class: "w-65 md:w-96 p-2 bg-stone-50 border border-stone-950 rounded-md", autofocus: true, placeholder:"メールアドレス" %>
+      </div>
+
+      <div class="actions my-6 flex justify-center">
+        <%= f.submit "確認", class: "w-44 rounded-md bg-yellow-900 p-3 text-white focus:outline-none cursor-pointer" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
