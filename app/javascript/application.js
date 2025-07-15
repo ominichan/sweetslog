@@ -8,7 +8,7 @@ import "./toggle_calendar.js"
 window.$ = jquery;
 window.jQuery = $;
 
-document.addEventListener("turbo:load", function() {
+$(document).ready(function(){
   $(".slider").slick({
     variableWidth: true,
     centerMode: true,
@@ -39,4 +39,3 @@ $(function(){
     drawer.toggleClass("is-checked")
   })
 })
-
