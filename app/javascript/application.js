@@ -8,7 +8,7 @@ import "./toggle_calendar.js"
 window.$ = jquery;
 window.jQuery = $;
 
-$(document).ready(function(){
+$(document).on('turbo:load', function(){
   $(".slider").slick({
     variableWidth: true,
     centerMode: true,

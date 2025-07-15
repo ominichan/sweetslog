@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "は有効なメールアドレス形式で入力してください" }
 
   has_one_attached :image
 

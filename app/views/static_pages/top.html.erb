@@ -6,13 +6,16 @@
     <li>幸せな思い出<span class="font-bold text-base sm:text-lg">「ログ」</span>しよう</li>
   </ul>
 </div>
-  <div class="slider my-10">
+
+<div class="overflow-hidden">
+  <div class="slider">
     <% @posts.each do |post| %>
       <% if post.image.attached? %>
         <div><%= image_tag(post.image.variant(resize_to_fill: [320, 320]), class:"rounded-xl") %></div>
       <% end %>
     <% end %>
   </div>
+</div>
 
 <div class="flex flex-col items-center justify-center animate-bounce">
   <span class="mt-5 text-yellow-900">Scroll</span>
