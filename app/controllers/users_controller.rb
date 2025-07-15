@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   def confirm
     user = current_user
     if user.email == params[:email] && user.valid_password?(params[:password])
-      UserMailer.send_change_email(user).deliver_now
+      UserMailer.send_edit_profile(user).deliver_now
       redirect_to authentication_sent_mail_path, notice: "メールを送信しました。"
     else
       flash.now[:alert] = "メールアドレスまたはパスワードが間違っています。"

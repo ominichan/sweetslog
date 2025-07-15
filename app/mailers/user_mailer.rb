@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  def send_change_email(user)
+  def send_edit_profile(user)
     @user = user
     @token = SecureRandom.urlsafe_base64(32)
     @user.update!(edit_profile_token: @token, edit_profile_token_expires_at: 30.minutes.from_now)

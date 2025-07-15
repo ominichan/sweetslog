@@ -48,6 +48,9 @@ ja:
       user:
         signed_in: "ログインしました"
         signed_out: "ログアウトしました"
+    passwords:
+      user:
+        updated: "パスワードを再設定しました"
     shared:
       links:
         forgot_your_password: "パスワードを忘れた方はコチラ"
@@ -62,6 +65,9 @@ ja:
       not_found_in_database: "%{authentication_keys}またはパスワードが違います。"
       timeout: セッションがタイムアウトしました。もう一度ログインしてください。
       unauthenticated: ログインもしくはアカウント登録してください。
+    mailer:
+      reset_password_instructions:
+        subject: "パスワード再設定用URLのご案内"
   errors:
     messages:
       already_confirmed: は既に登録済みです。ログインしてください。
