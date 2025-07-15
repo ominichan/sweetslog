@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Sweets Log</title>
-    <%= favicon_link_tag('favicon.ico') %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
@@ -18,7 +17,7 @@
 
     <%= javascript_include_tag "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", "data-turbo-track": "reload", defer: true %>
     <%= display_meta_tags(default_meta_tags) %>
-
+    <%= favicon_link_tag('favicon.ico') %>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HMGNVTNH06"></script>
     <script>
