@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [ :show, :my_posts, :edit, :update ]
+  before_action :set_user, only: [ :show, :my_posts, :edit, :update, :authentication ]
   def show
   end
 
@@ -39,6 +39,9 @@ class UsersController < ApplicationController
   end
 
   def authentication
+    if @user.provider.present?
+      redirect_to user_path(@user), alert: "Googleでログインしているため、個人情報の変更はできません。"
+    end
   end
 
   def confirm
