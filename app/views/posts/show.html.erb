@@ -3,12 +3,12 @@
   <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 justify-items-center">
     <div class="col-span-2 md:col-span-1 flex justify-center">
       <% if @post.image.persisted? %>
-        <%= image_tag(@post.image.variant(resize_to_fill: [360, 360]), class:"rounded-xl") %>
+        <%= image_tag(@post.image.variant(resize_to_fill: [400, 400]), class:"rounded-xl shadow-sm") %>
       <% else %>
-        <%= image_tag 'No_Image.png', class:"rounded-xl transition duration-300 group-hover:scale-105" %>
+        <%= image_tag "No_Image.png", class:"rounded-xl shadow-sm", width:400 %>
       <% end %>
     </div>
-    <div class="col-span-1 mt-6 md:mt-0 flex flex-col justify-start md:w-105 md:mr-8">
+    <div class="col-span-1 w-[95%] mt-6 md:mt-0 ml-0 md:ml-8 lg:ml-0 md:mr-10 flex flex-col justify-start">
       <div class="mb-5 flex flex-col">
         <div class="flex justify-between items-center">
           <div class="text-2xl font-bold text-gray-800 mr-4 md:mr-0">
@@ -41,7 +41,7 @@
       </div>
     </div>
 
-    <div class="col-span-2 w-full sm:w-[95%] container mt-0 sm:mt-8 mb-6 px-4 py-4 bg-yellow-50 inset-shadow-xs shadow-sm rounded-xl">
+    <div class="col-span-2 w-full sm:w-[95%] lg:w-[90%] container mt-0 sm:mt-8 mb-6 px-4 py-4 bg-yellow-50 inset-shadow-xs shadow-sm rounded-xl">
       <div class="flex flex-col justify-center items-center">
         <div class="pt-0 sm:pt-2 sm:text-base font-bold text-yellow-950">
           <%= @post.spot %>
