@@ -3,12 +3,13 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import jquery from "jquery"
 import "./place_autocomplete.js"
+import "./show_password.js"
 import "./toggle_calendar.js"
 
 window.$ = jquery;
 window.jQuery = $;
 
-$(document).on('turbo:load', function(){
+$(document).on("turbo:load", function(){
   $(".slider").slick({
     variableWidth: true,
     centerMode: true,
