@@ -9,12 +9,12 @@
         <%= f.label :name, class: "text-yellow-950 font-bold" %>
         <%= f.text_field :name, class: "w-65 md:w-96 p-1.5 bg-stone-50 border border-stone-950 rounded-md", autofocus: true, placeholder:"ユーザーネーム" %>
       </div>
-      <div class="flex flex-col mt-6">
+      <div class="flex flex-col mt-4">
         <%= f.label :email, class: "text-yellow-950 font-bold" %>
         <%= f.email_field :email, class: "w-65 md:w-96 p-1.5 bg-stone-50 border border-stone-950 rounded-md", placeholder:"メールアドレス" %>
       </div>
 
-      <div class="flex flex-col mt-6">
+      <div class="flex flex-col mt-4">
         <%= f.label :password, class: "text-yellow-950 font-bold" %>
         <%= f.password_field :password, id: "password", class: "w-65 md:w-96 p-1.5 bg-stone-50 border border-stone-950 rounded-md", placeholder:"パスワード（6文字以上）" %>
       </div>
@@ -23,7 +23,7 @@
         <label for="toggle-password">パスワードを表示</label>
       </div>
 
-      <div class="flex flex-col mt-6">
+      <div class="flex flex-col mt-4">
         <%= f.label :password_confirmation, class: "text-yellow-950 font-bold" %>
         <%= f.password_field :password_confirmation, id: "password_confirmation", class: "w-65 md:w-96 p-1.5 bg-stone-50 border border-stone-950 rounded-md", placeholder:"もう一度入力してください" %>
       </div>
@@ -32,7 +32,7 @@
         <label for="toggle-password">パスワードを表示</label>
       </div>
 
-      <div class="mt-6 actions flex justify-center">
+      <div class="mt-4 actions flex justify-center">
         <%= f.submit (t "device.registrations.new.sign_in"), class: "w-44 rounded-md bg-yellow-900 p-3 text-white focus:outline-none cursor-pointer" %>
       </div>
     <% end %>
