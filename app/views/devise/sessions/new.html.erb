@@ -15,7 +15,7 @@
         <%= f.email_field :email, class: "w-65 md:w-96 p-2 bg-stone-50 border border-stone-950 rounded-md", autofocus: true, placeholder:"メールアドレス" %>
       </div>
 
-      <div class="flex flex-col mt-6">
+      <div class="flex flex-col mt-4">
         <%= f.label :password, class: "text-yellow-950 font-bold" %>
         <%= f.password_field :password, id: "password", class: "w-65 md:w-96 p-2 bg-stone-50 border border-stone-950 rounded-md", placeholder:"パスワード" %>
       </div>
@@ -24,16 +24,24 @@
         <label for="toggle-password">パスワードを表示</label>
       </div>
 
-      <div class="actions mt-6 flex flex-col items-center justify-center">
+      <div class="actions mt-2 flex flex-col items-center justify-center">
         <% if devise_mapping.rememberable? %>
           <div class="field my-2">
             <%= f.check_box :remember_me %>
             <%= f.label :remember_me %>
           </div>
         <% end %>
-        <%= f.submit (t "device.sessions.new.log_in"), class: "w-44 rounded-md bg-yellow-900 p-3 text-white focus:outline-none cursor-pointer" %>
+        <%= f.submit (t "device.sessions.new.log_in"), class: "w-44 rounded-md bg-yellow-900 p-2.5 text-white focus:outline-none cursor-pointer" %>
       </div>
     <% end %>
   </div>
+
+  <div class="mx-auto flex items-center my-4 w-[90%]">
+    <div class="flex-grow border-t border-yellow-900"></div>
+    <span class="mx-4 text-yellow-900">または</span>
+    <div class="flex-grow border-t border-yellow-900"></div>
+  </div>
+
   <%= render "devise/shared/links" %>
 </div>
+

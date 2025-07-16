@@ -51,6 +51,10 @@ ja:
     passwords:
       user:
         updated: "パスワードを再設定しました"
+    omniauth_callbacks:
+      success: "%{kind}でログインしました"
+      user:
+        success: "%{kind}でログインしました"
     shared:
       links:
         forgot_your_password: "パスワードを忘れた方はコチラ"
