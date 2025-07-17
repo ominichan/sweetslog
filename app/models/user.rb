@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[google_oauth2]
   validates :name, presence: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "は有効なメールアドレス形式で入力してください" }
+  validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   validates :uid, presence: true, uniqueness: { scope: :provider }, if: -> { uid.present? }
 
   has_one_attached :image
