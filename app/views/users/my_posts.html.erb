@@ -1,10 +1,10 @@
-<div class= "my-10 font-bold text-center text-2xl text-yellow-900">
+<div class= "my-8 font-bold text-center text-2xl text-yellow-900">
   <%= @user.name %>の投稿
 </div>
 
 <%= render "posts/search_form", q: @q, url: my_posts_user_path(current_user) %>
 
-<div class="m-4 flex justify-center">
+<div class="mt-4 flex justify-center">
   <button id="toggle-calendar" class="font-semibold text-yellow-900 hover:text-yellow-600 cursor-pointer">
     カレンダーを表示（日別の投稿件数を確認できます）
   </button>
@@ -26,11 +26,11 @@
 </div>
 
 <% if @posts.present? %>
-  <div class="max-w-275 mx-auto">
+  <div class="max-w-275 mx-auto mt-6">
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 justify-items-center">
       <%= render @posts %>
     </div>
-    <nav class="mt-10">
+    <nav class="my-8">
       <%= pagy_nav(@pagy).html_safe %>
     </nav>
   </div>

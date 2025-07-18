@@ -1,12 +1,13 @@
-<%= render 'shared/flash_messages' %>
+<%= render "shared/flash_messages" %>
 
-<div class= "my-8 font-bold text-center text-2xl text-yellow-900">
-  お気に入り投稿一覧
+<div class="my-8">
+  <%= render "search_form", q: @q, url: likes_posts_path %>
 </div>
 
-<%= render 'search_form', q: @q, url: likes_posts_path %>
-
 <% if @like_posts.present? %>
+  <div class="mx-auto w-[80%] md:max-w-275">
+    <div id="map" class="h-80 md:h-100 rounded-xl"></div>
+  </div>
   <div class="my-8 max-w-275 mx-auto">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
       <%= render @like_posts %>
@@ -16,5 +17,57 @@
     </nav>
   </div>
 <% else %>
-  <div class="my-50 text-center">掲示板がありません</div>
+  <div class="my-50 text-center">お気に入り登録されている投稿はありません</div>
 <% end %>
+
+<script>
+  function initMap() {
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 10,
+      center: { lat: 35.681236, lng: 139.767125 }
+    });
+
+    const bounds = new google.maps.LatLngBounds();
+    const infoWindow = new google.maps.InfoWindow();
+
+    const markers = [
+      <% valid_posts = @like_posts.select { |p| p.latitude.present? && p.longitude.present? } %>
+      <% valid_posts.each_with_index do |post, index| %>
+        {
+          position: { lat: <%= post.latitude %>, lng: <%= post.longitude %> },
+          title: "<%= j post.title %>",
+          spot: "<%= j post.spot %>",
+          url: "<%= post_path(post) %>"
+        }<%= ',' unless index == valid_posts.size - 1 %>
+      <% end %>
+    ];
+
+    markers.forEach(markerData => {
+      const marker = new google.maps.Marker({
+        position: markerData.position,
+        map: map,
+        title: markerData.title
+      });
+
+      bounds.extend(marker.getPosition());
+
+      marker.addListener("click", () => {
+        const content = `
+          <div style="font-family: Arial, sans-serif; max-width: 260px; padding: 4px 8px; margin: 0;">
+            <a href="${markerData.url}" target="_blank" style="font-weight: bold; font-size: 16px; color: #007bff; text-decoration: none; margin: 0; padding: 0;">
+              ${markerData.title}
+            </a>
+            <p style="margin: 4px 0 0; font-size: 14px; color: #444; padding: 0;">
+              ${markerData.spot}
+            </p>
+          </div>
+        `;
+        infoWindow.setContent(content);
+        infoWindow.open(map, marker);
+      });
+    });
+
+    map.fitBounds(bounds);
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_API_KEY"] %>&callback=initMap" async defer></script>
