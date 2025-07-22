@@ -8,6 +8,9 @@ class Post < ApplicationRecord
   has_many :tags, through: :post_tags
   after_destroy :cleanup_unused_tags
 
+  has_many :post_categories, dependent: :destroy
+  has_many :categories, through: :post_categories
+
   has_many :comments, dependent: :destroy
 
   geocoded_by :address
@@ -19,11 +22,11 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   def self.ransackable_attributes(auth_object = nil)
-    %w[title body created_at address tags]
+    %w[title body created_at address tags categories]
   end
 
   def self.ransackable_associations(auth_object = nil)
-    %w[post_tags tags]
+    %w[post_tags tags categories post_categories]
   end
 
   def tag_names
