@@ -8,10 +8,10 @@
         <%= image_tag "No_Image.png", class:"rounded-xl shadow-sm", width: 400 %>
       <% end %>
     </div>
-    <div class="col-span-1 w-[95%] mt-6 md:mt-0 ml-0 md:ml-8 lg:ml-0 md:mr-10 flex flex-col justify-start">
+    <div class="col-span-1 w-[95%] mt-6 md:mt-0 ml-0 md:ml-8 lg:ml-0 md:mr-10">
       <div class="mb-5 flex flex-col">
         <div class="flex justify-between items-center">
-          <div class="text-2xl font-bold text-gray-800 mr-4 md:mr-0">
+          <div class="text-xl sm:text-2xl font-bold text-gray-800 mr-4 md:mr-0">
             <%= @post.title %>
           </div>
           <% if current_user %>
@@ -39,6 +39,15 @@
           <% end %>
         </div>
       </div>
+    </div>
+
+    <div class="col-span-2 ml-0 mb-4 sm:mb-0 sm:ml-8 md:ml-15 lg:ml-25 w-full">
+      <% if @post.categories.any? %>
+        <p class="mt-2 text-xs text-gray-400">
+          カテゴリ：
+          <%= @post.categories.map(&:name).join("、 ") %>
+        </p>
+      <% end %>
     </div>
 
     <div class="col-span-2 w-full sm:w-[95%] lg:w-[90%] container mt-0 sm:mt-8 mb-6 px-4 py-4 bg-yellow-50 inset-shadow-xs shadow-sm rounded-xl">

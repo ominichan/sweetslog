@@ -63,7 +63,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image, :tag_names, :spot, :address, :latitude, :longitude)
+    params.require(:post).permit(:title, :body, :image, :tag_names, :spot, :address, :latitude, :longitude, category_ids: [])
   end
 
   def set_recommend_posts
