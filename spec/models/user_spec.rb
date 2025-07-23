@@ -32,8 +32,20 @@ RSpec.describe User, type: :model do
       expect(user_without_password_confirmation.errors[:password_confirmation]).to eq [ "とパスワードの入力が一致しません。" ]
     end
 
-    it "メールアドレス(email)が不正な値(@が無い、値の間に@が無い)の場合にバリデーションが機能してinvalidになるか" do
-      user_fraud_email = build(:user, email: "abcdefg")
+    it "メールアドレス(email)が不正な値(@が無い)の場合にバリデーションが機能してinvalidになるか" do
+      user_fraud_email = build(:user, email: "abcdefg.com")
+      expect(user_fraud_email).to be_invalid
+      expect(user_fraud_email.errors[:email]).to eq [ "は有効でありません。" ]
+    end
+
+    it "メールアドレス(email)が不正な値(値の間に@が無い)の場合にバリデーションが機能してinvalidになるか" do
+      user_fraud_email = build(:user, email: "abcdefg.com@")
+      expect(user_fraud_email).to be_invalid
+      expect(user_fraud_email.errors[:email]).to eq [ "は有効でありません。" ]
+    end
+
+    it "メールアドレス(email)が不正な値(@の後に'.+文字列'が無い)の場合にバリデーションが機能してinvalidになるか" do
+      user_fraud_email = build(:user, email: "abcdefg@abcdefg")
       expect(user_fraud_email).to be_invalid
       expect(user_fraud_email.errors[:email]).to eq [ "は有効でありません。" ]
     end
