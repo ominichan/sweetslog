@@ -18,4 +18,6 @@ ja:
         body: コメント
   errors:
     messages:
-      blank: "を入力してください"
+      blank: "を入力してください。"
+      too_long: "は%{count}文字以下で入力して下さい。"
+      confirmation: "とパスワードの入力が一致しません。"
