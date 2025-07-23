@@ -1,8 +1,8 @@
 ja:
   activerecord:
-    users:
-      name: ユーザーネーム
-      email: メールアドレス
+    models:
+      post: 投稿
+      user: ユーザー
     attributes:
       post:
         title: メニュー名
@@ -11,5 +11,13 @@ ja:
         tag_names: タグ
         spot: 店名
         address: 住所
+      user:
+        name: ユーザーネーム
+        email: メールアドレス
       comment:
         body: コメント
+  errors:
+    messages:
+      blank: "を入力してください。"
+      too_long: "は%{count}文字以下で入力して下さい。"
+      confirmation: "とパスワードの入力が一致しません。"

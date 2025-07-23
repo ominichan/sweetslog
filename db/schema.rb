@@ -92,9 +92,10 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_22_011407) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "address"
+    t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.string "spot"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -112,9 +113,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_22_011407) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "unconfirmed_email"
+    t.string "name", null: false
     t.string "edit_profile_token"
+    t.datetime "edit_profile_token_expires_at"
     t.string "provider"
     t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
