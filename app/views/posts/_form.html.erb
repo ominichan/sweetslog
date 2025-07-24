@@ -14,7 +14,7 @@
         <% end %>
         <div class="my-5 flex flex-col">
           <%= f.label :image, class: "text-yellow-950 font-bold" %>
-          <%= f.file_field :image, accept: ".jpeg, .gif, .png, .jpg", class: "w-65 sm:w-100 py-2 px-2 appearance-none bg-stone-50 border border-yellow-950 rounded text-gray-500 cursor-pointer" %>
+          <%= f.file_field :image, id: "image", accept: ".jpeg, .gif, .png, .jpg", class: "w-65 sm:w-100 py-2 px-2 appearance-none bg-stone-50 border border-yellow-950 rounded text-gray-500 cursor-pointer" %>
         </div>
 
         <div class="w-full mb-5 lg:mb-0">
@@ -36,7 +36,7 @@
             <%= f.label :title, class: "text-yellow-950" %>
             <span class="text-red-600">*</span>
           </div>
-          <%= f.text_field :title, class: "w-65 sm:w-100 py-2 px-2 bg-stone-50 border border-yellow-950 rounded-md" %>
+          <%= f.text_field :title, id: "title", class: "w-65 sm:w-100 py-2 px-2 bg-stone-50 border border-yellow-950 rounded-md" %>
         </div>
 
         <div class="mb-5 flex flex-col">
@@ -44,12 +44,12 @@
             <%= f.label :body, class: "text-yellow-950" %>
             <span class="text-red-600">*</span>
           </div>
-          <%= f.text_area :body, class: "w-65 sm:w-100 bg-stone-50 px-2 border border-yellow-950 rounded-md", rows: "14" %>
+          <%= f.text_area :body, id: "body", class: "w-65 sm:w-100 bg-stone-50 px-2 border border-yellow-950 rounded-md", rows: "14" %>
         </div>
 
         <div class="mb-5 flex flex-col">
           <%= f.label :tag_names, class: "text-yellow-950 font-bold" %>
-          <%= f.text_field :tag_names, value: f.object.tag_names, class: "w-65 sm:w-100 py-2 px-2 bg-stone-50 border border-yellow-950 rounded-md", placeholder: " 複数登録する場合はカンマ( , )で区切ってください" %>
+          <%= f.text_field :tag_names, id: "tag_names", value: f.object.tag_names, class: "w-65 sm:w-100 py-2 px-2 bg-stone-50 border border-yellow-950 rounded-md", placeholder: " 複数登録する場合はカンマ( , )で区切ってください" %>
         </div>
 
         <div class="mb-5 flex flex-col">
