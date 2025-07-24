@@ -155,7 +155,7 @@ RSpec.describe "Posts", type: :system do
         end
       end
     end
-    
+
     describe "投稿削除" do
       let!(:post) { create(:post, user: user) }
 

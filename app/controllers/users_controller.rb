@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :image)
   end
- 
+
   def set_requested_user
     @user = User.find(params[:id])
   end
@@ -70,7 +70,6 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  
   def authorize_user!
     unless params[:id].to_i == current_user.id
       redirect_to user_path(current_user), alert: "不正なアクセスです。"
