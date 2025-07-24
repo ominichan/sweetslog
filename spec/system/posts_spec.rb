@@ -156,10 +156,10 @@ RSpec.describe "Posts", type: :system do
       end
     end
     
-    describe "タスク削除" do
+    describe "投稿削除" do
       let!(:post) { create(:post, user: user) }
 
-      it "タスクの削除が成功する" do
+      it "投稿の削除が成功する" do
         visit post_path(post)
         click_link id: "post_destroy"
         expect(page.accept_confirm).to eq "本当に削除しますか？"
