@@ -1,16 +1,16 @@
-<div class="w-[90%] md:w-150 md:my-22 mt-6 container mx-auto px-2 py-10 bg-white shadow-sm shadow-2xs rounded-xl">
+<div class="w-[90%] md:w-150 my-8 md:my-22 mt-6 container mx-auto px-4 py-10 bg-white shadow-sm shadow-2xs rounded-xl">
   <div class="my-4 mb-6 font-bold text-center text-2xl text-yellow-900">
     プロフィール編集
   </div>
-  <div class="justify-items-center">
-    <%= form_with model: @user do |f| %>
+  <div class="flex items-center justify-center">
+    <%= form_with model: @user, local: true do |f| %>
       <div class="mb-6">
         <%= f.label :name, class: "block text-yellow-950 font-bold" %>
-        <%= f.text_field :name, class: "w-96 py-2 px-2 bg-stone-50 border border-yellow-950 rounded-md" %>
+        <%= f.text_field :name, class: "w-65 md:w-96 py-2 px-2 bg-stone-50 border border-yellow-950 rounded-md" %>
       </div>
       <div class="mt-5">
         <%= f.label "プロフィール画像", class: "block text-yellow-950 font-bold" %>
-        <%= f.file_field :image, accept: ".jpeg, .gif, .png, .jpg", class: "w-96 py-2 px-2 appearance-none bg-stone-50 border border-yellow-950 rounded w-full text-gray-500 cursor-pointer" %>
+        <%= f.file_field :image, accept: ".jpeg, .gif, .png, .jpg", class: "max-w-65 md:max-w-96 py-2 px-2 appearance-none bg-stone-50 border border-yellow-950 rounded w-full text-gray-500 cursor-pointer" %>
       </div>
 
       <div class="mt-7 flex justify-center">
