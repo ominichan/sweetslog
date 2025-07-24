@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :authorize_user!, only: [ :show, :edit, :update ]
+  before_action :set_requested_user, only: [ :profile ]
   before_action :set_user, only: [ :show, :my_posts, :edit, :update, :authentication ]
   def show
   end
@@ -23,7 +25,6 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = User.find(params[:id])
     @pagy, @posts = pagy(@user.posts.includes(:user).order(created_at: :desc), items: 12)
   end
 
@@ -32,9 +33,9 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to profile_user_path
+      redirect_to profile_user_path, notice: "プロフィールを更新しました。"
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -61,7 +62,17 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :image)
   end
 
+  def set_requested_user
+    @user = User.find(params[:id])
+  end
+
   def set_user
     @user = current_user
+  end
+
+  def authorize_user!
+    unless params[:id].to_i == current_user.id
+      redirect_to user_path(current_user), alert: "不正なアクセスです。"
+    end
   end
 end

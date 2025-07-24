@@ -32,7 +32,10 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = current_user.posts.find(params[:id])
+    @post = current_user.posts.find_by(id: params[:id])
+    if @post.nil?
+      redirect_to posts_path, alert: "不正なアクセスです。"
+    end
   end
 
   def update

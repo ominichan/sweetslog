@@ -12,7 +12,7 @@
         <%= link_to '投稿一覧', posts_path, class: "#{current_page?(posts_path) ? "current-brown-button" : "brown-button"}" %>
         <%= link_to 'お気に入り', likes_posts_path, class: "#{current_page?(likes_posts_path) ? "current-brown-button" : "brown-button"}" %>
         <%= link_to 'スイーツ診断', new_diagnose_path, class: "#{current_page?(new_diagnose_path) ? "current-brown-button" : "brown-button"}" %>
-        <%= link_to 'マイページ', user_path(current_user.id), class: "#{current_page?(user_path(current_user.id)) ? "current-brown-button" : "brown-button"}" %>
+        <%= link_to 'マイページ', user_path(current_user), class: "#{current_page?(user_path(current_user.id)) ? "current-brown-button" : "brown-button"}" %>
         <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: "brown-button cursor-pointer" %>
       </ul>
     </div>
