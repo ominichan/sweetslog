@@ -3,6 +3,7 @@ FactoryBot.define do
     sequence(:title) { |n| "title#{n}" }
     body { "テスト投稿です。" }
     spot { "大阪城" }
+    tag_names { "" }
     address { "日本、〒540-0002 大阪府大阪市中央区大阪城１−１" }
     association :user
   end
