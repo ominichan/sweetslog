@@ -88,6 +88,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "simplecov", require: false
 end
 
 gem "dockerfile-rails", ">= 1.7", group: :development
