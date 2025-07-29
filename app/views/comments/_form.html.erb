@@ -3,7 +3,7 @@
   <%= form_with model: comment, url: post_comments_path(post) do |f| %>
 
   <div class="flex items-center justify-center">
-    <div class="grow"><%= f.text_area :body, class:"mt-1 w-full p-3 bg-stone-50 border border-yellow-950 rounded-md", placeholder: "コメント", rows: "1.5" %></div>
+    <div class="grow"><%= f.text_area :body, id: "comment", class:"mt-1 w-full p-3 bg-stone-50 border border-yellow-950 rounded-md", placeholder: "コメント", rows: "1.5" %></div>
     <div><%= f.submit "投稿", class: "ml-1 p-3 bg-yellow-900 text-white hover:bg-yellow-700 rounded-md cursor-pointer" %></div>
   </div>
   <% end %>

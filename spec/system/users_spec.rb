@@ -60,6 +60,15 @@ RSpec.describe "Users", type: :system do
   describe "[ログイン後]" do
     before { login_as(user) }
 
+    describe "ページ遷移確認" do
+      context "自分の投稿ページにアクセスする" do
+        it "自分の投稿ページへのアクセスが成功する" do
+          visit my_posts_user_path(user)
+          expect(current_path).to eq my_posts_user_path(user)
+        end
+      end
+    end
+
     describe "プロフィール編集" do
       context "名前を変更する" do
         it "名前の変更が成功する" do
