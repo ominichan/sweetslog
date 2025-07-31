@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   root "static_pages#top"
+  get "privacy_policy", to: "static_pages#privacy_policy"
+  get "terms_of_service", to: "static_pages#terms_of_service"
+
+
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: "users/sessions",
@@ -33,6 +37,7 @@ Rails.application.routes.draw do
 
   get  "diagnoses/new", to: "diagnoses#new", as: "new_diagnose"
   post "diagnoses/result", to: "diagnoses#result", as: "diagnoses_result"
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
