@@ -78,13 +78,13 @@ Rails.application.configure do
   # caching is enabled.
   config.action_mailer.perform_caching = false
 
-  host = "https://sweetslog.fly.dev"
+  host = "https://sweetslog.com"
   config.action_mailer.default_url_options = { protocol: "https", host: host }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     port: 587,
-    domain: "sweetslog.fly.dev",
+    domain: "https://sweetslog.com",
     address: "smtp.gmail.com",
     user_name: ENV["GOOGLE_MAIL_ADDRESS"],
     password: ENV["GOOGLE_APP_PASSWORD"],
