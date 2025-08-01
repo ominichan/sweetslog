@@ -84,7 +84,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     port: 587,
-    domain: "https://sweetslog.com",
+    domain: "sweetslog.com",
     address: "smtp.gmail.com",
     user_name: ENV["GOOGLE_MAIL_ADDRESS"],
     password: ENV["GOOGLE_APP_PASSWORD"],
