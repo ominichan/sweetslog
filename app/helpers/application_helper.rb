@@ -9,14 +9,14 @@ module ApplicationHelper
       charset: "utf-8",
       description: "お店で食べたスイーツを記録・シェアできるアプリ",
       keywords: "スイーツ,ケーキ,甘党,カフェ,共有,シェア",
-      canonical: "https://sweetslog.fly.dev/",
+      canonical: "https://sweetslog.com/",
       separator: "|",
       og: {
         site_name: :site,
         title: :title,
         description: :description,
         type: "website",
-        url: "https://sweetslog.fly.dev/",
+        url: "https://sweetslog.com/",
         image: image_url("ogp.png"),
         local: "ja-JP"
       },
