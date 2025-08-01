@@ -115,9 +115,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_01_025759) do
     t.datetime "updated_at", null: false
     t.string "name", null: false
     t.string "edit_profile_token"
+    t.datetime "edit_profile_token_expires_at"
     t.string "provider"
     t.string "uid"
-    t.datetime "edit_profile_token_expires_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
