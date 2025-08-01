@@ -16,11 +16,23 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.name = auth.info.name
-      user.password = Devise.friendly_token[0, 20]
+    user = find_by(provider: auth.provider, uid: auth.uid)
+
+    if user.nil?
+      user = find_by(email: auth.info.email)
+      if user
+        user.update(provider: auth.provider, uid: auth.uid)
+      else
+        user = create(
+          email: auth.info.email,
+          name: auth.info.name,
+          provider: auth.provider,
+          uid: auth.uid,
+          password: Devise.friendly_token[0, 20]
+        )
+      end
     end
+    user
   end
 
   def self.create_unique_string
