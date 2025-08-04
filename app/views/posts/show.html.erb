@@ -69,12 +69,19 @@
     </div>
   </div>
 
-  <div class="flex justify-center items-center">
-    <%= link_to "https://x.com/share?url=#{post_url(@post)}&text=#{CGI.escape("#{ @post.user.name}さんの投稿【#{ @post.title}】をチェック！")}", class:"inline-flex text-yellow-950 hover:text-yellow-700", target: "_blank", rel: "noopener noreferrer" do %>
-      <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="size-4.5"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
-      <span>で投稿をシェアする</span>
-    <% end %>
+  <div class="flex justify-center items-center space-x-4">
+    <div class="x-share-button">
+      <%= link_to "https://x.com/share?url=#{post_url(@post)}&text=#{CGI.escape("#{ @post.user.name}さんの投稿【#{ @post.title}】をチェック！")}", class:"p-2 inline-flex text-white bg-slate-950 hover:bg-stone-700 rounded-md", target: "_blank", rel: "noopener noreferrer" do %>
+        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="size-4.5"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+        <span class="font-semibold">で投稿をシェアする</span>
+      <% end %>
+    </div>
+
+    <div class="line-share-button">
+      <%= link_to "LINEで投稿をシェアする", "https://social-plugins.line.me/lineit/share?url=#{CGI.escape(post_url(@post))}&text=#{CGI.escape("#{ @post.user.name}さんの投稿【#{ @post.title}】をチェック！")}", class: "p-2 inline-flex text-white bg-green-600 hover:bg-green-500 rounded-md font-semibold", target: "_blank" %>
+    </div>
   </div>
+
 </div>
 
 <%= render "comments/comments_area" %>
