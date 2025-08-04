@@ -4,7 +4,7 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: "SweetsLog",
-      title: "SweetsLog ～美味しい『スイーツ』を食べた幸せな気持ち『ログ』しよう～",
+      title: "SweetsLog ～美味しい『スイーツ』を食べた幸せな思い出『ログ』しよう～",
       reverse: true,
       charset: "utf-8",
       description: "お店で食べたスイーツを記録・シェアできるアプリ",
