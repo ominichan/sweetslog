@@ -3,6 +3,7 @@
 @import "./simple_calendar.css";
 @import "./fade_in.css";
 @import "./header.css";
+@import "./top.css";
 
 body {
   background-color: var(--color-yellow-50);

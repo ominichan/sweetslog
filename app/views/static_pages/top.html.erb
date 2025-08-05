@@ -1,6 +1,15 @@
 <%= render "shared/flash_messages" %>
-<div class="flex flex-col items-center justify-center my-25 mx-5">
+<div class="flex flex-col items-center justify-center my-18">
   <%= image_tag "top.png" %>
+  <div class="flex items-center justify-center space-x-5">
+    <% if user_signed_in? %>
+      <%= link_to "投稿する", new_post_path, class: "top-brown-button cursor-pointer" %>
+      <%= link_to "マイページ", user_path(current_user), class: "top-brown-button cursor-pointer" %>
+    <% else %>
+      <%= link_to "ログイン", new_user_session_path, class: "top-brown-button cursor-pointer" %>
+      <%= link_to "新規登録", new_user_registration_path, class: "top-brown-button cursor-pointer" %>
+    <% end %>
+  </div>
 </div>
 
 <div class="mb-8 flex flex-col items-center justify-center animate-bounce">
@@ -84,10 +93,10 @@
         </div>
       </div>
     </div>
-    <div class="w-[90%] text-white md:w-90 mx-auto mb-12 text-center text-base">
-      <%= link_to 'みんなの投稿を見る', posts_path, class: "block px-5 py-2.5 bg-yellow-900 rounded-xl hover:bg-yellow-700" %>
+    <div class="w-[90%] md:w-90 mx-auto mb-12 text-center text-base">
+      <%= link_to "みんなの投稿を見る", posts_path, class: "block px-5 py-2.5 bg-yellow-900 rounded-xl hover:bg-yellow-700 text-white cursor-pointer" %>
       <% unless user_signed_in? %>
-        <%= link_to '会員登録（無料）をして使ってみる', new_user_registration_path, class: "mt-4 block px-5 py-2.5 bg-yellow-900 rounded-xl hover:bg-yellow-700" %>
+        <%= link_to "会員登録をして使ってみる", new_user_registration_path, class: "mt-4 block px-5 py-2.5 bg-yellow-900 rounded-xl hover:bg-yellow-700 text-white cursor-pointer" %>
       <% end %>
    </div>
   </div>
