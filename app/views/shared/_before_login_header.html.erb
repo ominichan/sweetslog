@@ -7,9 +7,9 @@
     </div>
     <div class="hidden lg:flex">
       <ul class="flex mr-2 text-yellow-900 text-sm font-semibold">
-        <%= link_to '投稿一覧', posts_path, class: "#{current_page?(posts_path) ? "current-brown-button" : "brown-button"}" %>
-        <%= link_to 'ログイン', new_user_session_path, class: "#{current_page?(new_user_session_path) ? "current-brown-button" : "brown-button"}" %>
-        <%= link_to 'ユーザー登録', new_user_registration_path, class: "#{current_page?(new_user_registration_path) ? "current-brown-button" : "brown-button"}" %>
+        <%= link_to "投稿一覧", posts_path, class: "#{current_page?(posts_path) ? "current-brown-button" : "brown-button"}" %>
+        <%= link_to "ログイン", new_user_session_path, class: "#{current_page?(new_user_session_path) ? "current-brown-button" : "brown-button"}" %>
+        <%= link_to "ユーザー登録", new_user_registration_path, class: "#{current_page?(new_user_registration_path) ? "current-brown-button" : "brown-button"}" %>
       </ul>
     </div>
 
@@ -25,9 +25,9 @@
     </nav>
   </nav>
   <ul id="minimenu" class="hidden mx-auto w-full bg-yellow-900 text-center text-yellow-50 font-semibold">
-    <li class= "p-2 hover:bg-yellow-700"><%= link_to '投稿一覧', posts_path %></li>
-    <li class= "p-2 hover:bg-yellow-700"><%= link_to 'ログイン', new_user_session_path %></li>
-    <li class= "p-2 hover:bg-yellow-700"><%= link_to 'ユーザー登録', new_user_registration_path %></li>
+    <li class= "p-2 hover:bg-yellow-700"><%= link_to "投稿一覧", posts_path %></li>
+    <li class= "p-2 hover:bg-yellow-700"><%= link_to "ログイン", new_user_session_path %></li>
+    <li class= "p-2 hover:bg-yellow-700"><%= link_to "ユーザー登録", new_user_registration_path %></li>
   </ul>
 </header>
 <script>
