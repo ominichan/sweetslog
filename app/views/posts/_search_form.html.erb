@@ -7,16 +7,16 @@
         <%= f.date_field :created_at_lteq_end_of_day, include_blank: true, class: "p-2 w-auto lg:w-30 w-auto bg-stone-50 border border-yellow-950 rounded-md" %>
       </div>
     <% end %>
-    <%= f.select :address_cont, Prefecture.list, { include_blank: " 都道府県" }, class: "p-2 mt-2 lg:mt-0 w-74 lg:w-30 bg-stone-50 border border-yellow-950 rounded-md" %>
-    <%= f.select :categories_id_in, Category.all.pluck(:name, :id), { include_blank: "カテゴリ" }, class: "p-2 mt-2 lg:mt-0 w-74 lg:w-50 bg-stone-50 border border-yellow-950 rounded-md" %>
+    <%= f.select :address_cont, Prefecture.list, { include_blank: " 都道府県" }, class: "p-2 mt-2 lg:mt-0 w-65 lg:w-30 bg-stone-50 border border-yellow-950 rounded-md" %>
+    <%= f.select :categories_id_in, Category.all.pluck(:name, :id), { include_blank: "カテゴリ" }, class: "p-2 mt-2 lg:mt-0 w-65 lg:w-50 bg-stone-50 border border-yellow-950 rounded-md" %>
 
     <div data-controller="autocomplete" data-autocomplete-url-value="/tags/autocomplete" role="combobox" data-autocomplete-query-param-value="name">
-      <%= f.search_field :tags_name_cont, data: { autocomplete_target: "input" }, placeholder: " タグ", class: "mt-2 lg:mt-0 p-2 w-74 lg:w-50 bg-stone-50 border border-yellow-950 rounded-md" %>
+      <%= f.search_field :tags_name_cont, data: { autocomplete_target: "input" }, placeholder: " タグ", class: "mt-2 lg:mt-0 p-2 w-65 lg:w-50 bg-stone-50 border border-yellow-950 rounded-md" %>
       <%= f.hidden_field :tags_name, data: { autocomplete_target: "hidden" } %>
-      <ul class="list-group z-50 absolute w-74 lg:w-50 max-h-60 overflow-y-auto border border-gray-200 rounded-md" data-autocomplete-target="results"></ul>
+      <ul class="list-group z-50 absolute w-65 lg:w-50 max-h-60 overflow-y-auto border border-gray-200 rounded-md" data-autocomplete-target="results"></ul>
     </div>
 
-    <%= f.search_field :title_or_body_or_tags_name_cont, placeholder: " キーワード", class: "mt-2 lg:mt-0 p-2 w-74 lg:w-50 bg-stone-50 border border-yellow-950 rounded-md" %>
+    <%= f.search_field :title_or_body_or_tags_name_cont, placeholder: " キーワード", class: "mt-2 lg:mt-0 p-2 w-65 lg:w-50 bg-stone-50 border border-yellow-950 rounded-md" %>
     <%= f.submit "検索", class: "mt-2 lg:mt-0 rounded-md bg-yellow-900 py-2 px-3 text-white focus:outline-none cursor-pointer" %>
   <% end %>
 </div>
