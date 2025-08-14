@@ -30,8 +30,7 @@
 | 新規投稿作成 |
 | :---: | 
 | <img width="1899" height="907" alt="Image" src="https://github.com/user-attachments/assets/11d9d7f2-5810-4f4b-8ae7-694533f53dc9" /> |
-| <img width="540" height="322" alt="Image" src="https://github.com/user-attachments/assets/97b3192c-b798-4db5-8028-9ad667337570" /> |
-| <img width="550" height="212" alt="Image" src="https://github.com/user-attachments/assets/4e521dc0-fd26-460c-9bca-630446c42c4f" /> |
+| [![Image from Gyazo](https://i.gyazo.com/36f5a7258714fc09e46741933aecac7c.gif)](https://gyazo.com/36f5a7258714fc09e46741933aecac7c) |
 | <p align="left">画像、メニュー名、本文、タグ、店名、住所、カテゴリ選択を入力します（タグ、カテゴリ選択は任意入力）。<br>店名と住所入力フォームにはオートコンプリート機能があり、候補を選択することでどちらも自動補完されます。</p> |
 <br>
 
@@ -44,9 +43,7 @@
 
 | 投稿詳細 |
 | :---: |
-| <img width="1899" height="815" alt="Image" src="https://github.com/user-attachments/assets/432a8409-c716-4fde-a30c-3c185de156e0" /> |
-| <img width="1885" height="903" alt="Image" src="https://github.com/user-attachments/assets/8b3d2eef-d021-4d42-909c-b6c346c5b325" /> |
-| <img width="1894" height="807" alt="Image" src="https://github.com/user-attachments/assets/3754aff7-c1eb-4554-a7cc-44a9e87c1352" /> |
+| [![Image from Gyazo](https://i.gyazo.com/34445b78a14c9fb4b4bcd2be7ce92c42.gif)](https://gyazo.com/34445b78a14c9fb4b4bcd2be7ce92c42) |
 | <p align="left">XやLINEのシェアボタン、コメント機能があります。自身の投稿の場合は投稿編集・削除ボタン、他ユーザーの投稿の場合はお気に入りボタンが表示されます。</p> |
 <br>
 <br>
@@ -59,9 +56,8 @@
 
 | スイーツ診断 |
 | :---: |
-| <img width="1900" height="907" alt="Image" src="https://github.com/user-attachments/assets/70e08de7-8048-4177-8820-c67295aaebcb" /> |
-| <img width="1919" height="741" alt="Image" src="https://github.com/user-attachments/assets/92bdb88b-2974-41ef-8401-6ced1d8f97fe" /> |
-| <p align="left">質問に対し今の気分で解答を選択することで、今のあなたにおすすめのスイーツを診断できます。</p> |
+| [![Image from Gyazo](https://i.gyazo.com/028d2d5809f7f3796788b596d7a4b379.gif)](https://gyazo.com/028d2d5809f7f3796788b596d7a4b379) |
+| <p align="left">質問に対し今の気分で解答を選択することで、今のあなたにおすすめのスイーツを表示します。もう一度診断するを押すことで何度でも診断可能です。</p> |
 <br>
 
 | 自分の投稿 |
