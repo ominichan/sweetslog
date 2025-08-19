@@ -8,9 +8,7 @@
         <% if @post.image.persisted? %>
           <%= image_tag(@post.image.variant(resize_to_fill: [360, 360]), class:"rounded-xl") %>
         <% else %>
-          <div class="container w-65 h-65 sm:h-95 sm:w-95 mx-auto flex items-center justify-center rounded-xl bg-gray-300">
-            <p>ここに画像が入ります</p>
-          </div>
+          <a class="container w-65 h-65 sm:h-95 sm:w-95 mx-auto flex items-center justify-center rounded-xl bg-gray-300"></a>
         <% end %>
         <div class="my-5 flex flex-col">
           <%= f.label :image, class: "text-yellow-950 font-bold" %>
