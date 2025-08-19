@@ -64,7 +64,12 @@
       });
     });
 
-    map.fitBounds(bounds);
+    if (markers.length === 1) {
+      map.setCenter(markers[0].position);
+      map.setZoom(10);
+    } else {
+      map.fitBounds(bounds);
+    }
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GOOGLE_API_KEY"] %>&callback=initMap" async defer></script>
