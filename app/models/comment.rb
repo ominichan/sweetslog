@@ -5,10 +5,10 @@ class Comment < ApplicationRecord
   belongs_to :post
   has_many :notifications, dependent: :destroy
 
-  def create_notification_comment!(current_user,comment_id)
+  def create_notification_comment!(current_user, comment_id)
     temp_ids = Comment.select(:user_id).where(post_id: id).where.not(user_id: current_user).distinct
     temp_ids.each do |temp_id|
-      save_notification_comment!(current_user, comment_id, temp_id['user_id'])
+      save_notification_comment!(current_user, comment_id, temp_id["user_id"])
     end
     save_notification_comment!(current_user, comment_id, user_id) if temp_ids.blank?
   end
@@ -19,7 +19,7 @@ class Comment < ApplicationRecord
       comment_id: id,
       visited_id: visited_id,
       visitor_id: current_user.id,
-      action: 'comment'
+      action: "comment"
     )
     notification.save if notification.visitor_id != notification.visited_id
   end
