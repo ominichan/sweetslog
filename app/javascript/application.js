@@ -5,6 +5,7 @@ import jquery from "jquery"
 import "./place_autocomplete.js"
 import "./show_password.js"
 import "./toggle_calendar.js"
+import "./notifications.js"
 
 window.$ = jquery;
 window.jQuery = $;

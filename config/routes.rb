@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "notifications/index"
   root "static_pages#top"
   get "privacy_policy", to: "static_pages#privacy_policy"
   get "terms_of_service", to: "static_pages#terms_of_service"
@@ -32,6 +33,12 @@ Rails.application.routes.draw do
   resources :tags do
     collection do
       get :autocomplete
+    end
+  end
+
+  resources :notifications, only: [] do
+    collection do
+      patch :mark_as_read
     end
   end
 

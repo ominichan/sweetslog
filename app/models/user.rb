@@ -15,6 +15,9 @@ class User < ApplicationRecord
   has_many :like_posts, through: :likes, source: :post
   has_many :comments, dependent: :destroy
 
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+
   def self.from_omniauth(auth)
     user = find_by(provider: auth.provider, uid: auth.uid)
 
