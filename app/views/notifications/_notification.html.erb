@@ -1,0 +1,12 @@
+<% if notifications.present? %>
+  <% notifications.each do |notification| %>
+    <li class="px-4 py-2 hover:bg-gray-50 text-xs <%= notification.checked ? "text-gray-400" : "text-gray-800 font-semibold" %>">
+      <%= notification.visitor&.name || "ユーザー" %>
+      さんが
+      <%= link_to 'あなたの投稿', post_path(notification.post_id), class: (notification.checked ? "text-gray-400" : "text-blue-600") %>
+      にコメントしました
+    </li>
+  <% end %>
+<% else %>
+  <li class="px-4 py-2 text-xs text-gray-500">通知はありません</li>
+<% end %>
