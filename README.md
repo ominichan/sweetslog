@@ -69,14 +69,14 @@
 ##  ■ 使用技術
 | カテゴリ | 技術内容 |
 | --- | --- | 
+| 環境構築 | Docker |
 | サーバーサイド | Ruby on Rails 7.2.2・Ruby 3.2.3 |
 | フロントエンド | Ruby on Rails・JavaScript・Hotwire（Turbo + Stimulus）・jQuery |
-| 環境構築 | Docker |
 | CSSフレームワーク | Tailwindcss　|
 | Web API | Google Maps API、LINE Developers |
-| データベースサーバー | PostgreSQL |
-| ファイルサーバー | AWS S3 |
 | アプリケーションサーバー | Fly.io |
+| ファイルサーバー | AWS S3 |
+| データベースサーバー | PostgreSQL |
 | バージョン管理 |	Git ・ GitHub |
 | CI/CD |		GitHub Actions |
 
