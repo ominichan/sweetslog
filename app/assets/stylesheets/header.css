@@ -23,3 +23,18 @@
   background-color: var(--color-yellow-900);
   color: var(--color-yellow-50);
 }
+
+.notifications-brown-button {
+  margin-right: 1rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-radius: 2rem;
+  background-color: var(--color-yellow-50);
+}
+
+.notifications-brown-button:hover {
+  background-color: var(--color-yellow-900);
+  color: var(--color-yellow-50);
+}
