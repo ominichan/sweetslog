@@ -81,7 +81,7 @@
 | CI/CD |		GitHub Actions |
 
 ##  ■ ER図
-<img width="842" height="660" alt="Image" src="https://github.com/user-attachments/assets/bbc22f48-ae46-4e83-ae21-4bee13f19735" />
+<img width="1164" height="659" alt="Image" src="https://github.com/user-attachments/assets/5af10b0f-46f2-42fd-9efb-079edb22f419" />
 
 ##  ■ 画面遷移図
 <img width="1167" height="799" alt="Image" src="https://github.com/user-attachments/assets/fd6de4f5-70b7-423f-ba31-0cce0cddf741" />
