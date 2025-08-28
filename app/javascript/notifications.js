@@ -3,7 +3,7 @@ document.addEventListener("turbo:load", () => {
 
   if (dropdown) {
     dropdown.addEventListener("toggle", () => {
-      if (dropdown.open) { // 開いたときだけ
+      if (dropdown.open) {
         fetch("/notifications/mark_as_read", {
           method: "PATCH",
           headers: {
@@ -11,7 +11,9 @@ document.addEventListener("turbo:load", () => {
           }
         }).then(() => {
           const countEl = document.getElementById("notification-count");
-          if (countEl) countEl.textContent = "0";
+          if (countEl) {
+            countEl.style.display = "none";
+          }
         });
       }
     });

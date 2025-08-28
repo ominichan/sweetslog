@@ -3,7 +3,7 @@
     <li class="px-4 py-2 hover:bg-gray-50 text-xs <%= notification.checked ? "text-gray-400" : "text-gray-800 font-semibold" %>">
       <%= notification.visitor&.name || "ユーザー" %>
       さんが
-      <%= link_to 'あなたの投稿', post_path(notification.post_id), class: (notification.checked ? "text-gray-400" : "text-blue-600") %>
+      <%= link_to notification.post.title, post_path(notification.post_id), class: (notification.checked ? "text-gray-400" : "text-blue-600") %>
       にコメントしました
     </li>
   <% end %>
