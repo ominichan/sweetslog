@@ -32,6 +32,7 @@
   padding-bottom: 0.75rem;
   border-radius: 2rem;
   background-color: var(--color-yellow-50);
+  color: var(--color-yellow-900);
 }
 
 .notifications-brown-button:hover {
