@@ -20,46 +20,40 @@
 
 <script>
   function initMap() {
-    const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 10
-    });
-
+    const map = new google.maps.Map(document.getElementById("map"));
     const bounds = new google.maps.LatLngBounds();
     const infoWindow = new google.maps.InfoWindow();
 
-    const markers = [
-      <% valid_posts = @like_posts.select { |p| p.latitude.present? && p.longitude.present? } %>
-      <% valid_posts.each_with_index do |post, index| %>
+    const markers = <%= raw( @like_posts.map { |post|
         {
-          position: { lat: <%= post.latitude %>, lng: <%= post.longitude %> },
-          title: "<%= j post.title %>",
-          spot: "<%= j post.spot %>",
-          url: "<%= post_path(post) %>"
-        }<%= ',' unless index == valid_posts.size - 1 %>
-      <% end %>
-    ];
+          position: { lat: post.latitude, lng: post.longitude },
+          title: post.title,
+          spot: post.spot,
+          url: post_path(post)
+        }
+      }.to_json
+    ) %>;
 
     markers.forEach(markerData => {
       const marker = new google.maps.Marker({
         position: markerData.position,
         map: map,
-        title: markerData.title,
+        title: markerData.title
       });
 
       bounds.extend(marker.getPosition());
 
       marker.addListener("click", () => {
-        const content = `
-          <div style="font-family: Arial, sans-serif; max-width: 260px; padding: 4px 8px; margin: 0;">
-            <a href="${markerData.url}" target="_blank" style="font-weight: bold; font-size: 16px; color: #007bff; text-decoration: none; margin: 0; padding: 0;">
+        infoWindow.setContent(`
+          <div style="font-family: Arial, sans-serif; max-width: 260px; padding: 4px 8px;">
+            <a href="${markerData.url}" target="_blank" style="font-weight: bold; font-size: 16px; color: #007bff; text-decoration: none;">
               ${markerData.title}
             </a>
-            <p style="margin: 4px 0 0; font-size: 14px; color: #444; padding: 0;">
+            <p style="margin: 4px 0 0; font-size: 14px; color: #444;">
               ${markerData.spot}
             </p>
           </div>
-        `;
-        infoWindow.setContent(content);
+        `);
         infoWindow.open(map, marker);
       });
     });
