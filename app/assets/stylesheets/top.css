@@ -1,8 +1,8 @@
 .top-brown-button {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   border-radius: 0.5rem;
   background-color: var(--color-yellow-900);
   color: white;
